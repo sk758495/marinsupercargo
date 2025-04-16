@@ -1,0 +1,953 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+    <!-- ===== EXTERNAL CSS LIBRARIES ===== -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.4/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-DQvkBjpPgn7RC31MCQoOeC9TI2kdqa4+BSgNMNj8v77fdC77Kj5zpWFTJaaAoMbC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- ===== CUSTOM CSS STYLES ===== -->
+    <style>
+        /* ===== ROOT VARIABLES ===== */
+        :root {
+            --primary-color: #0049a7;
+        }
+
+        /* ===== NAVBAR LOGO STYLES ===== */
+        .navbar-logo {
+            height: 30px;
+            width: auto;
+            transition: transform 0.3s ease;
+        }
+
+        .navbar-logo:hover {
+            transform: scale(1.05);
+        }
+
+        @media (max-width: 991.98px) {
+            .navbar-logo {
+                height: 25px;
+            }
+        }
+
+        /* ===== BUTTON PRIMARY STYLES ===== */
+        .btn-primary {
+            background-color: var(--primary-color);
+            border: none;
+            padding: 10px 18px;
+            font-size: 1rem;
+            font-weight: bold;
+        }
+
+        /* ===== SERVICE BADGE STYLES ===== */
+        .service-badge {
+            display: inline-flex;
+            align-items: center;
+            padding: 8px 12px;
+            background-color: #f8f9fa;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            color: #333;
+            transition: all 0.3s ease;
+            border: 1px solid #e9ecef;
+        }
+
+        .service-badge i {
+            color: var(--primary-color);
+            font-size: 0.9rem;
+        }
+
+        .service-badge:hover {
+            background-color: #e9ecef;
+            transform: translateY(-2px);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        /* ===== VENDOR CARD STYLES ===== */
+        .vendor-card {
+            border: none;
+            border-radius: 12px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            background: white;
+        }
+
+        .vendor-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1) !important;
+        }
+
+        .vendor-avatar {
+            width: 100px;
+            height: 100px;
+            margin: 0 auto;
+            border: 3px solid var(--primary-color);
+            border-radius: 50%;
+            padding: 3px;
+        }
+
+        .vendor-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+
+        .vendor-name {
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+
+        .vendor-info p {
+            color: #666;
+            font-size: 0.95rem;
+        }
+
+        .section-title {
+            color: #333;
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        .quote-btn {
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .quote-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        /* ===== SEARCH BOX STYLES ===== */
+        .search-box {
+            border-radius: 30px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        .search-box .form-control {
+            border-radius: 30px 0 0 30px;
+            padding-left: 0;
+        }
+
+        .search-box .input-group-text {
+            border-radius: 30px 0 0 30px;
+            border-right: none;
+        }
+
+        .search-box .btn {
+            border-radius: 0 30px 30px 0;
+        }
+
+        /* ===== VENDOR CARD ENHANCEMENTS ===== */
+        .status-badge {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            border: 2px solid white;
+        }
+
+        .status-badge.online {
+            background-color: #28a745;
+        }
+
+        .status-badge.offline {
+            background-color: #dc3545;
+        }
+
+        .vendor-avatar {
+            position: relative;
+            width: 100px;
+            height: 100px;
+            margin: 0 auto;
+            border: 3px solid var(--primary-color);
+            border-radius: 50%;
+            padding: 3px;
+        }
+
+        .rating {
+            font-size: 0.9rem;
+        }
+
+        /* ===== SEARCH AND FILTER STYLES ===== */
+        .search-filter-container {
+            position: relative;
+        }
+
+        .search-box {
+            border-radius: 30px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: visible;
+            background: white;
+        }
+
+        .search-box .form-control {
+            border-radius: 30px 0 0 30px;
+            padding-left: 0;
+            border: none;
+            box-shadow: none;
+        }
+
+        .search-box .form-control:focus {
+            box-shadow: none;
+        }
+
+        .search-box .input-group-text {
+            border-radius: 30px 0 0 30px;
+            border-right: none;
+            border: none;
+            background: white;
+        }
+
+        .dropdown {
+            position: static;
+        }
+
+        .filter-btn {
+            border-radius: 0 30px 30px 0;
+            border: none;
+            background: white;
+            color: #666;
+            padding: 8px 20px;
+            transition: all 0.3s ease;
+            z-index: 1;
+        }
+
+        .filter-btn:hover, .filter-btn:focus {
+            background: #f8f9fa;
+            color: var(--primary-color);
+        }
+
+        .filter-dropdown {
+            width: 300px;
+            border: none;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            border-radius: 10px;
+            margin-top: 5px !important;
+            padding: 16px !important;
+            position: absolute;
+            right: 0;
+            z-index: 1000;
+            background: white;
+        }
+
+        .filter-content {
+            width: 100%;
+        }
+
+        .filter-title {
+            color: var(--primary-color);
+            font-weight: 600;
+            font-size: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .filter-section {
+            margin-bottom: 1.25rem;
+        }
+
+        .filter-label {
+            display: block;
+            color: #666;
+            font-size: 0.9rem;
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+        }
+
+        .filter-options {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .form-check {
+            margin: 0;
+            padding-left: 1.5rem;
+        }
+
+        .form-check-input {
+            cursor: pointer;
+            margin-top: 0.25rem;
+        }
+
+        .form-check-label {
+            cursor: pointer;
+            font-size: 0.9rem;
+            color: #333;
+        }
+
+        .form-select {
+            width: 100%;
+            padding: 0.375rem 0.75rem;
+            font-size: 0.9rem;
+            border: 1px solid #dee2e6;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        .filter-actions {
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid #dee2e6;
+        }
+
+        .filter-actions .btn {
+            padding: 0.375rem 1rem;
+            font-size: 0.9rem;
+        }
+
+        /* === RESPONSIVE STYLES === */
+        @media (max-width: 991.98px) {
+            .container {
+                padding-left: 20px;
+                padding-right: 20px;
+            }
+
+            .col-md-8 {
+                padding: 0 10px;
+            }
+
+            .filter-dropdown {
+                width: calc(100vw - 40px);
+                max-width: 300px;
+                right: -10px;
+            }
+        }
+
+        @media (max-width: 767.98px) {
+            
+            .vendor-card .row {
+                flex-direction: column;
+            }
+
+            .vendor-card .col-md-2,
+            .vendor-card .col-md-4 {
+                width: 100%;
+                text-align: center;
+                padding: 10px 15px;
+            }
+
+            .vendor-avatar {
+                margin-bottom: 15px;
+            }
+
+            .vendor-info {
+                margin-bottom: 20px;
+            }
+
+            .service-badge {
+                margin: 5px;
+            }
+
+            .quote-btn {
+                width: 100%;
+                margin-top: 15px;
+            }
+
+            .filter-options {
+                padding-left: 20px;
+            }
+
+            .search-box {
+                flex-wrap: nowrap;
+            }
+
+            .search-box .form-control {
+                min-width: 0;
+            }
+
+            .filter-btn {
+                white-space: nowrap;
+                padding-left: 15px;
+                padding-right: 15px;
+            }
+        }
+
+        @media (max-width: 575.98px) {
+            .container {
+                padding-left: 15px;
+                padding-right: 15px;
+            }
+
+            .search-filter-container {
+                margin: 0 -10px;
+            }
+
+            .search-box {
+                border-radius: 20px;
+            }
+
+            .search-box .input-group-text,
+            .search-box .form-control {
+                border-radius: 20px 0 0 20px;
+            }
+
+            .filter-btn {
+                border-radius: 0 20px 20px 0;
+                padding: 8px 12px;
+            }
+
+            .filter-btn i {
+                margin-right: 5px;
+            }
+
+            .filter-dropdown {
+                width: calc(100vw - 30px);
+                max-width: none;
+                right: -15px;
+                padding: 12px !important;
+            }
+
+            .filter-content {
+                padding: 0;
+            }
+
+            .filter-section {
+                margin-bottom: 1rem;
+            }
+
+            .filter-actions {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .filter-actions .btn {
+                width: 100%;
+            }
+
+            .vendor-card {
+                margin: 0 -10px;
+                border-radius: 8px;
+            }
+
+            .vendor-card .card-body {
+                padding: 15px;
+            }
+
+            .vendor-info p {
+                font-size: 0.85rem;
+            }
+
+            .service-badge {
+                font-size: 0.8rem;
+                padding: 6px 10px;
+            }
+
+            .section-title {
+                font-size: 1rem;
+                margin-bottom: 10px;
+            }
+        }
+
+        /* === UTILITY CLASSES FOR RESPONSIVE SPACING === */
+        @media (max-width: 767.98px) {
+            .mb-md-0 {
+                margin-bottom: 1rem !important;
+            }
+
+            .text-md-center {
+                text-align: center !important;
+            }
+
+            .d-md-flex {
+                display: flex !important;
+            }
+
+            .justify-content-md-center {
+                justify-content: center !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- ===== NAVIGATION BAR ===== -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top shadow-sm">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <img src="images/cleanshiplogo.jpg" alt="Cleanship Logo" class="navbar-logo">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+                    aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#services">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#process">Process</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">contact</a>
+                    </li>
+                </ul>
+                <div class="d-flex">
+                    <a href="#contact" class="btn btn-primary get-quote-btn">Get Quote</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ===== VENDOR LIST SECTION ===== -->
+    <div class="container mt-5 pt-5">
+        <div class="text-center mb-5">
+            <h2 class="display-5 fw-bold mb-3">Our Trusted Vendors</h2>
+            <p class="text-muted">Connect with our network of professional service providers</p>
+            
+            <!-- Search and Filter Section -->
+            <div class="row justify-content-center mb-4">
+                <div class="col-md-8">
+                    <div class="search-filter-container">
+                        <div class="input-group search-box">
+                            <span class="input-group-text bg-white border-end-0">
+                                <i class="bi bi-search text-muted"></i>
+                            </span>
+                            <input type="text" class="form-control border-start-0" placeholder="Search vendors by name, port, or service...">
+                            <div class="dropdown">
+                                <button class="btn btn-outline-secondary dropdown-toggle filter-btn" type="button" id="filterDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <i class="bi bi-funnel me-2"></i>Filter
+                                </button>
+                                <div class="dropdown-menu dropdown-menu-end filter-dropdown p-3" aria-labelledby="filterDropdown">
+                                    <div class="filter-content">
+                                        <h6 class="filter-title mb-3">Filter Options</h6>
+                                        
+                                        <div class="filter-section mb-3">
+                                            <label class="filter-label mb-2">Service Type</label>
+                                            <div class="filter-options">
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" id="allServices" checked>
+                                                    <label class="form-check-label" for="allServices">All Services</label>
+                                                </div>
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" id="portServices">
+                                                    <label class="form-check-label" for="portServices">Port Services</label>
+                                                </div>
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" id="maintenance">
+                                                    <label class="form-check-label" for="maintenance">Maintenance</label>
+                                                </div>
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" id="cleaning">
+                                                    <label class="form-check-label" for="cleaning">Cleaning</label>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="filter-section mb-3">
+                                            <label class="filter-label mb-2">Port Location</label>
+                                            <select class="form-select">
+                                                <option selected>All Ports</option>
+                                                <option>Port 1</option>
+                                                <option>Port 2</option>
+                                                <option>Port 3</option>
+                                            </select>
+                                        </div>
+
+                                        <div class="filter-section mb-3">
+                                            <label class="filter-label mb-2">Sort By</label>
+                                            <select class="form-select">
+                                                <option selected>Most Recent</option>
+                                                <option>Name (A-Z)</option>
+                                                <option>Name (Z-A)</option>
+                                            </select>
+                                        </div>
+
+                                        <div class="filter-actions d-flex justify-content-between mt-3">
+                                            <button class="btn btn-outline-secondary" type="button">Reset</button>
+                                            <button class="btn btn-primary" type="button">Apply Filters</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <style>
+            #vendor-name-card {
+            border-radius: 8px;
+            background-color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        #vendor-name-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 55%;
+            height: 100%;
+            background: linear-gradient(to left, rgba(184, 206, 234, 0.8), rgba(0,73,167,0.4));
+            clip-path: polygon(0 0, 90% 0, 80% 100%, 0% 100%);
+            z-index: 0;
+        }
+
+        #vendor-name-card > .col-md-2,
+        #vendor-name-card > .col-md-4 {
+            position: relative;
+            z-index: 1;
+        }
+
+        @media (max-width: 767px) {
+    #vendor-name-card {
+        border-radius: 8px;
+        background-color: #e9ecef;
+        position: relative;
+        overflow: hidden;
+    }
+
+    #vendor-name-card::before {
+        content: none; 
+    }
+
+    
+}
+
+        
+
+        </style>
+        <div class="row">
+            <!-- Vendor Card 1 -->
+            <div class="col-12 mb-4">
+                <div class="card vendor-card shadow-sm">
+                    <div class="card-body p-4">
+                        <div class="row align-items-center p-2"id="vendor-name-card">
+                            <div class="col-md-2 text-center" >
+                                <div class="vendor-avatar">
+                                    <img src="images/pro.avif" alt="Vendor Profile" class="rounded-circle">
+                                    <!-- <span class="status-badge online"></span> -->
+                                </div>
+                                <!-- <div class="rating mt-2">
+                                    <i class="bi bi-star-fill text-warning"></i>
+                                    <i class="bi bi-star-fill text-warning"></i>
+                                    <i class="bi bi-star-fill text-warning"></i>
+                                    <i class="bi bi-star-fill text-warning"></i>
+                                    <i class="bi bi-star-half text-warning"></i>
+                                    <span class="ms-1">4.5</span>
+                                </div> -->
+                            </div>
+                            <div class="col-md-4 ">
+                                <h4 class="vendor-name mb-2">Vendor Name</h4>
+                                <div class="vendor-info">
+                                    <p class="mb-2 text-black"><i class="bi bi-geo-alt-fill me-2"></i> Port Name</p>
+                                    <p class="mb-2 text-black"><i class="bi bi-envelope-fill me-2"></i> vendor@email.com</p>
+                                    <!-- <p class="mb-2"><i class="bi bi-telephone-fill me-2"></i> +1234567890</p> -->
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <h5 class="section-title mb-3">Services Offered</h5>
+                                <div class="d-flex flex-wrap gap-2">
+                                    <span class="service-badge">
+                                        <i class="bi bi-check-circle-fill me-2"></i>
+                                        <span>Service 1</span>
+                                    </span>
+                                    <span class="service-badge">
+                                        <i class="bi bi-check-circle-fill me-2"></i>
+                                        <span>Service 2</span>
+                                    </span>
+                                    <span class="service-badge">
+                                        <i class="bi bi-check-circle-fill me-2"></i>
+                                        <span>Service 3</span>
+                                    </span>
+                                </div>
+                                <!-- <div class="mt-3">
+                                    <span class="badge bg-success">Available Now</span>
+                                    <span class="badge bg-info ms-2">24/7 Support</span>
+                                </div> -->
+                            </div>
+                            <div class="col-md-2 text-center">
+                                <button class="btn btn-primary btn-lg quote-btn mb-2">
+                                    <i class="bi bi-chat-dots me-2"></i>Send Quote
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Vendor Card 2 -->
+            <div class="col-12 mb-4">
+                <div class="card vendor-card shadow-sm">
+                    <div class="card-body p-4">
+                        <div class="row align-items-center">
+                            <div class="col-md-2 text-center">
+                                <div class="vendor-avatar">
+                                    <img src="images/pro.avif" alt="Vendor Profile" class="rounded-circle">
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <h4 class="vendor-name mb-2">Vendor Name</h4>
+                                <div class="vendor-info">
+                                    <p class="mb-2"><i class="bi bi-geo-alt-fill me-2"></i> Port Name</p>
+                                    <p class="mb-2"><i class="bi bi-envelope-fill me-2"></i> vendor@email.com</p>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <h5 class="section-title mb-3">Services Offered</h5>
+                                <div class="d-flex flex-wrap gap-2">
+                                    <span class="service-badge">
+                                        <i class="bi bi-check-circle-fill me-2"></i>
+                                        <span>Service 1</span>
+                                    </span>
+                                    <span class="service-badge">
+                                        <i class="bi bi-check-circle-fill me-2"></i>
+                                        <span>Service 2</span>
+                                    </span>
+                                    <span class="service-badge">
+                                        <i class="bi bi-check-circle-fill me-2"></i>
+                                        <span>Service 3</span>
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="col-md-2 text-center">
+                                <button class="btn btn-primary btn-lg quote-btn">
+                                    <i class="bi bi-chat-dots me-2"></i>Send Quote
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Vendor Card 3 -->
+            <div class="col-12 mb-4">
+                <div class="card vendor-card shadow-sm">
+                    <div class="card-body p-4">
+                        <div class="row align-items-center">
+                            <div class="col-md-2 text-center">
+                                <div class="vendor-avatar">
+                                    <img src="images/pro.avif" alt="Vendor Profile" class="rounded-circle">
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <h4 class="vendor-name mb-2">Vendor Name</h4>
+                                <div class="vendor-info">
+                                    <p class="mb-2"><i class="bi bi-geo-alt-fill me-2"></i> Port Name</p>
+                                    <p class="mb-2"><i class="bi bi-envelope-fill me-2"></i> vendor@email.com</p>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <h5 class="section-title mb-3">Services Offered</h5>
+                                <div class="d-flex flex-wrap gap-2">
+                                    <span class="service-badge">
+                                        <i class="bi bi-check-circle-fill me-2"></i>
+                                        <span>Service 1</span>
+                                    </span>
+                                    <span class="service-badge">
+                                        <i class="bi bi-check-circle-fill me-2"></i>
+                                        <span>Service 2</span>
+                                    </span>
+                                    <span class="service-badge">
+                                        <i class="bi bi-check-circle-fill me-2"></i>
+                                        <span>Service 3</span>
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="col-md-2 text-center">
+                                <button class="btn btn-primary btn-lg quote-btn">
+                                    <i class="bi bi-chat-dots me-2"></i>Send Quote
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== FOOTER SECTION ===== -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <footer class="site-footer">
+        <div class="footer-top">
+            <div class="footer-column logo-column">
+                <h2 class="logo">LOGO</h2>
+                <p class="slogan">SOLOGAN COMPANY</p>
+            </div>
+            <div class="footer-column">
+                <a href="#">WEEBLY THEMES</a>
+                <a href="#">PRE-SALE FAQS</a>
+                <a href="#">SUBMIT A TICKET</a>
+            </div>
+            <div class="footer-column">
+                <a href="#">SERVICES</a>
+                <a href="#">THEME TWEAK</a>
+            </div>
+            <div class="footer-column">
+                <a href="#">SHOWCASE</a>
+                <a href="#">WIDGETKIT</a>
+                <a href="#">SUPPORT</a>
+            </div>
+            <div class="footer-column">
+                <a href="#">ABOUT US</a>
+                <a href="#">CONTACT US</a>
+                <a href="#">AFFILIATES</a>
+                <a href="#">RESOURCES</a>
+            </div>
+        </div>
+
+        <hr class="footer-divider" />
+
+        <div class="footer-bottom">
+            <div class="social-icons">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-google-plus-g"></i></a>
+            </div>
+            <p class="copyright">©Copyright. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <style>
+        /* ===== FOOTER STYLES ===== */
+        .site-footer {
+            background-color: #f8f9fa;
+            color: #111;
+            padding: 40px 20px;
+            font-family: Arial, sans-serif;
+            margin-top: 40px;
+        }
+
+        .footer-top {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 20px;
+            text-align: left;
+            margin-bottom: 20px;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .footer-column {
+            flex: 1;
+            min-width: 140px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .logo-column .logo {
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .logo-column .slogan {
+            font-size: 12px;
+            color: #bbb;
+        }
+
+        .footer-column a {
+            margin: 6px 0;
+            font-size: 13px;
+            color: #111;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-column a:hover {
+            color: var(--primary-color);
+        }
+
+        .footer-divider {
+            border: none;
+            height: 1px;
+            background-color: #ddd;
+            margin: 20px auto;
+            max-width: 1200px;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .social-icons {
+            margin-bottom: 10px;
+        }
+
+        .social-icons a {
+            color: #111;
+            margin: 0 8px;
+            font-size: 18px;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .social-icons a:hover {
+            color: var(--primary-color);
+        }
+
+        .footer-bottom p {
+            font-size: 12px;
+            color: #111;
+            margin: 0;
+        }
+
+        /* Responsive Footer Styles */
+        @media screen and (max-width: 768px) {
+            .footer-top {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+                padding: 0 20px;
+            }
+
+            .footer-column {
+                width: 100%;
+                margin-bottom: 20px;
+                align-items: center;
+            }
+
+            .logo-column .logo {
+                font-size: 24px;
+            }
+
+            .footer-column a {
+                font-size: 14px;
+            }
+
+            .social-icons a {
+                font-size: 20px;
+            }
+        }
+    </style>
+
+    <!-- ===== EXTERNAL JAVASCRIPT LIBRARIES ===== -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.4/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-YUe2LzesAfftltw+PEaao2tjU/QATaW/rOitAq67e0CT0Zi2VVRL0oC4+gAaeBKu"
+            crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    
+    <!-- ===== AOS INITIALIZATION ===== -->
+    <script>
+        AOS.init({
+            duration: 1000,
+            once: false,
+            mirror: true
+        });
+    </script>
+</body>
+</html>

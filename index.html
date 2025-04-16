@@ -1,0 +1,3020 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- ===== META TAGS ===== -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Marine Super Cargo</title>
+    <link rel="icon" href="images/logbg2.png" type="image/x-icon">
+    <link rel="stylesheet" href="css/navbar.css">
+    
+    <!-- ===== EXTERNAL CSS LIBRARIES ===== -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.4/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-DQvkBjpPgn7RC31MCQoOeC9TI2kdqa4+BSgNMNj8v77fdC77Kj5zpWFTJaaAoMbC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- ===== CUSTOM CSS STYLES ===== -->
+    <style>
+        /* ===== ROOT VARIABLES ===== */
+        :root {
+            --primary-color: #0049a7;
+        }
+
+        /* ===== CUSTOM TEXT COLOR ===== */
+        .text-custom-color {
+            color: var(--primary-color) !important;
+        }
+
+        /* ===== CAROUSEL STYLES ===== */
+        .carousel-item {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .carousel-item img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+            transition: transform 5s ease-in-out;
+        }
+
+        /* ===== CAROUSEL RESPONSIVE STYLES ===== */
+        @media (min-width: 1200px) {
+            .carousel-item img {
+                height: 700px;
+            }
+        }
+
+        @media (max-width: 1199.98px) and (min-width: 992px) {
+            .carousel-item img {
+                height: 60vh;
+            }
+        }
+
+        @media (max-width: 991.98px) and (min-width: 768px) {
+            .carousel-item img {
+                height: 50vh;
+            }
+        }
+
+        @media (max-width: 767.98px) and (min-width: 576px) {
+            .carousel-item img {
+                height: 45vh;
+            }
+        }
+
+        @media (max-width: 575.98px) {
+            .carousel-item img {
+                height: 40vh;
+            }
+        }
+
+        .carousel-item.active img {
+            transform: scale(1.1);
+        }
+        /* ===== CAROUSEL CAPTION STYLES ===== */
+        .carousel-caption {
+            padding: 1rem;
+            border-radius: 10px;
+            bottom: 20px;
+            text-align: center;
+            width: 100%;
+            left: 0;
+            right: 0;
+        }
+
+        .carousel-caption h5 {
+            font-weight: bold;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            
+        }
+
+        .carousel-caption p {
+            max-width: 600px;
+            margin: 0 auto;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Responsive styles for carousel captions */
+        /* @media (min-width: 1240px) {
+            .carousel-caption h5 {
+                font-size: 2rem;
+                margin-top: 450px;
+            }
+            .carousel-caption p {
+                font-size: 1rem;
+            }
+        }
+
+        @media (max-width: 1199.98px) and (min-width: 992px) {
+            .carousel-caption h5 {
+                font-size: 2rem;
+                margin-top: 300px;
+            }
+            .carousel-caption p {
+                font-size: 0.8rem;
+            }
+        }
+
+        @media (max-width: 991.98px) and (min-width: 768px) {
+            .carousel-caption h5 {
+                font-size: 2rem;
+                margin-top: 200px;
+            }
+            .carousel-caption p {
+                font-size: 0.6rem;
+            }
+        }
+
+        @media (max-width: 767.98px) and (min-width: 576px) {
+            .carousel-caption h5 {
+                font-size: 1.5rem;
+                margin-top: 150px;
+            }
+            .carousel-caption p {
+                font-size: 0.6rem;
+            }
+        }
+
+        @media (max-width: 575.98px) {
+            .carousel-caption h5 {
+                font-size: 1rem;
+                margin-top: 100px;
+            }
+            .carousel-caption p {
+                font-size: 0.6rem;
+            }
+        } */
+
+        /* ===== FIXED IMAGE STYLES ===== */
+        .fixed-img {
+            height: 200px;
+            object-fit: cover;
+        }
+
+        @media (max-width: 767.98px) {
+            .fixed-img {
+                height: 150px;
+            }
+        }
+
+        /* ===== ABOUT SECTION STYLES ===== */
+        .about-section {
+            padding: 80px 0;
+            background-color: #fff;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .about-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(0, 73, 167, 0.03), transparent);
+            z-index: 0;
+        }
+
+        /* ===== ABOUT CONTENT STYLES ===== */
+        .about-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .about-label {
+            font-size: 1.1rem;
+            letter-spacing: 2px;
+            margin-bottom: 15px;
+            display: inline-block;
+            position: relative;
+        }
+
+        .about-label::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background-color: var(--primary-color);
+            transition: width 0.3s ease;
+        }
+
+        .about-label:hover::after {
+            width: 80px;
+        }
+
+        /* ===== ABOUT TITLE AND DESCRIPTION STYLES ===== */
+        .about-title {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+            color: #222;
+            position: relative;
+            line-height: 1.2;
+        }
+
+        .about-description {
+            color: #555;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 30px;
+            position: relative;
+        }
+
+        /* ===== ABOUT BUTTON STYLES ===== */
+        .about-btn {
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            padding: 12px 30px;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        .about-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: 0.5s;
+        }
+
+        .about-btn:hover::before {
+            left: 100%;
+        }
+
+        /* ===== ABOUT IMAGE CONTAINER STYLES ===== */
+        .about-image-container {
+            position: relative;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            transform: perspective(1000px) rotateY(0deg);
+            transition: transform 0.5s ease;
+        }
+
+        .about-image {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+
+        .image-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, rgba(0, 73, 167, 0.1), transparent);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .about-image-container:hover {
+            transform: perspective(1000px) rotateY(5deg);
+        }
+
+        .about-image-container:hover .about-image {
+            transform: scale(1.05);
+        }
+
+        .about-image-container:hover .image-overlay {
+            opacity: 1;
+        }
+
+        /* ===== RESPONSIVE ABOUT SECTION STYLES ===== */
+        @media (max-width: 768px) {
+            .about-section {
+                padding: 40px 0;
+            }
+
+            .about-title {
+                font-size: 2rem;
+            }
+
+            .about-description {
+                font-size: 1rem;
+            }
+
+            .about-btn {
+                padding: 10px 25px;
+            }
+        }
+
+        /* ===== TEXT PRIMARY STYLES ===== */
+        .text-primary {
+            position: relative;
+            display: inline-block;
+            text-align: center;
+        }
+
+        .text-primary::before,
+        .text-primary::after {
+            content: "";
+            position: absolute;
+            background-color: red;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .text-primary::before {
+            bottom: -4px;
+            width: 70%;
+            height: 2px;
+        }
+
+        .text-primary::after {
+            bottom: -8px;
+            width: 35%;
+            height: 1px;
+        }
+
+        /* ===== FEATURE LIST STYLES ===== */
+        .feature-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .feature-list li {
+            display: flex;
+            align-items: center;
+            font-size: 1rem;
+            margin-bottom: 8px;
+        }
+
+        .feature-list li i {
+            color: var(--primary-color);
+            margin-right: 8px;
+        }
+
+        /* ===== BUTTON PRIMARY STYLES ===== */
+        .btn-primary {
+            background-color: var(--primary-color);
+            border: none;
+            padding: 10px 18px;
+            font-size: 1rem;
+            font-weight: bold;
+        }
+
+        /* ===== LOGO SLIDER STYLES ===== */
+        .logo-slider {
+            overflow: hidden;
+            white-space: nowrap;
+            background-color: #fff;
+            padding: 15px 0;
+            position: relative;
+        }
+
+        .logos-wrapper {
+            display: inline-block;
+            animation: scroll 25s linear infinite;
+        }
+
+        .logos {
+            display: flex;
+            gap: 20px;
+        }
+
+        .logos img {
+            max-height: 40px;
+            width: auto;
+            object-fit: contain;
+        }
+
+        @keyframes scroll {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+
+        /* ===== WHY CHOOSE US SECTION STYLES ===== */
+        .why-choose-us {
+            text-align: center;
+            padding: 80px 0;
+            background-color: #f8f9fa;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .why-choose-us::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, rgba(0, 73, 167, 0.05), transparent);
+            z-index: 0;
+        }
+
+        /* ===== SECTION HEADER STYLES ===== */
+        .section-header {
+            margin-bottom: 60px;
+            position: relative;
+        }
+
+        .section-header h5 {
+            color: var(--primary-color);
+            font-weight: bold;
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-header h5::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 40px;
+            height: 2px;
+            background-color: var(--primary-color);
+            transition: width 0.3s ease;
+        }
+
+        .section-header:hover h5::after {
+            width: 80px;
+        }
+
+        .section-header h2 {
+            font-weight: bold;
+            font-size: 2.5rem;
+            margin-top: 15px;
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .section-header p {
+            max-width: 800px;
+            margin: 0 auto;
+            color: #6c757d;
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+
+        /* ===== FEATURE CARD STYLES ===== */
+        .feature-card {
+            text-align: center;
+            padding: 30px 25px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+            height: 100%;
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, var(--primary-color), transparent);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+        }
+
+        .feature-card:hover::before {
+            opacity: 0.05;
+        }
+
+        /* ===== FEATURE ICON STYLES ===== */
+        .feature-icon {
+            width: 70px;
+            height: 70px;
+            background: var(--primary-color);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            font-size: 28px;
+            transition: all 0.3s ease;
+            position: relative;
+            z-index: 1;
+        }
+
+        .feature-card:hover .feature-icon {
+            transform: scale(1.1) rotate(5deg);
+            background: var(--primary-color);
+        }
+
+        .feature-card h5 {
+            font-size: 1.25rem;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            position: relative;
+            z-index: 1;
+            transition: color 0.3s ease;
+        }
+
+        .feature-card p {
+            font-size: 0.95rem;
+            color: #555;
+            line-height: 1.6;
+            position: relative;
+            z-index: 1;
+            transition: color 0.3s ease;
+        }
+
+        .feature-card:hover p {
+            color: #333;
+        }
+
+        /* ===== RESPONSIVE WHY CHOOSE US STYLES ===== */
+        @media (max-width: 768px) {
+            .why-choose-us {
+                padding: 60px 0;
+            }
+
+            .section-header h2 {
+                font-size: 2rem;
+            }
+
+            .section-header p {
+                font-size: 1rem;
+            }
+
+            .feature-card {
+                padding: 25px 20px;
+            }
+
+            .feature-icon {
+                width: 60px;
+                height: 60px;
+                font-size: 24px;
+            }
+        }
+
+        /* ===== HIDE MD STYLES ===== */
+        .hide-md {
+            display: none;
+        }
+
+        /* ===== FIXED BACKGROUND SECTION STYLES ===== */
+
+        .fixed-bg-section {
+            position: relative;
+            background-image: url('images/carousel1.jpg');
+            background-attachment: fixed;
+            background-size: cover;
+            background-position: center;
+            padding: 100px 0;
+        }
+
+        .fixed-bg-section::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.4);
+            z-index: 1;
+        }
+
+        .fixed-bg-section .z-2 {
+            position: relative;
+            z-index: 2;
+        }
+
+        /* ===== SERVICE CARD STYLES ===== */
+        .service-card {
+            height: 100%;
+            transition: opacity 0.3s ease;
+        }
+
+        .service-card:hover {
+            opacity: 0.85;
+        }
+
+        .card-img-top {
+            height: 180px;
+            object-fit: cover;
+        }
+
+        
+
+
+        @media (min-width: 768px) {
+            .hide-md {
+                display: block;
+            }
+            
+        }
+
+        /* ===== RESPONSIVE ALIEN TEXT STYLES ===== */
+        @media (max-width: 767.98px) {
+            #alienText {
+                font-size: 1.5rem;
+            }
+            
+            #about {
+                padding:20px;
+            }
+        }
+
+       
+/* 
+.navbar-logo {
+    height: 60px;
+    width: auto;
+    transition: transform 0.3s ease;
+}
+.navbar-logo:hover {
+    transform: scale(1.05);
+}
+
+.navbar {
+    padding: 15px 0;
+    transition: all 0.3s ease;
+}
+
+.navbar.scrolled {
+    padding: 10px 0;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.nav-link {
+    color: #333 !important;
+    font-weight: 500;
+    padding: 8px 15px !important;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 15px;
+    width: 0;
+    height: 2px;
+    background-color: var(--primary-color);
+    transition: width 0.3s ease;
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+    width: calc(100% - 30px);
+}
+
+.nav-link:hover,
+.nav-link.active {
+    color: var(--primary-color) !important;
+}
+
+.get-quote-btn {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 10px 25px;
+    border-radius: 5px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    border: 2px solid var(--primary-color);
+}
+
+.get-quote-btn:hover {
+    background-color: transparent;
+    color: var(--primary-color);
+}
+
+@media (max-width: 991.98px) {
+    .navbar-logo {
+        height: 35px;
+    }
+    
+    .nav-link::after {
+        display: none;
+    }
+    
+    .navbar-collapse {
+        background-color: white;
+        padding: 15px;
+        border-radius: 10px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+}
+
+.dropdown-menu {
+    background-color: white;
+    border: none;
+    border-radius: 8px;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+    padding: 8px 0;
+    margin-top: 10px;
+    min-width: 220px;
+}
+
+.dropdown-item {
+    color: #333;
+    padding: 8px 20px;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+}
+
+.dropdown-item:hover {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.dropdown-toggle::after {
+    display: none;
+}
+
+.nav-link.dropdown-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 4px;
+    padding-right: 20px !important;
+    position: relative;
+}
+
+.nav-link.dropdown-toggle::before {
+    content: '';
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    border: none;
+    border-left: 2px solid currentColor;
+    border-bottom: 2px solid currentColor;
+    transform: rotate(-45deg);
+    transition: transform 0.3s ease;
+    position: absolute;
+    right: 5px;
+    top: 50%;
+    margin-top: -6px;
+}
+
+.show .nav-link.dropdown-toggle::before {
+    transform: rotate(135deg);
+    margin-top: -4px;
+}
+
+
+
+.btn-primary {
+    background-color: var(--primary-color);
+    border: none;
+    padding: 10px 18px;
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+.get-quote-btn {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 10px 25px;
+    border-radius: 5px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    border: 2px solid var(--primary-color);
+}
+
+
+
+
+
+@media (max-width: 991.98px) {
+    .nav-link.dropdown-toggle::before {
+        right: 15px;
+        margin-top: -4px;
+    }
+} */
+
+
+        /* ===== STAR JEDI FONT FACE ===== */
+        @font-face {
+            font-family: 'Star Jedi';
+            src: url(https://cdn.jsdelivr.net/gh/TecnoSpeedy/starwars-font/StarJedi.ttf) format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        
+    </style>
+</head>
+<body>
+
+  
+  <!-- ===== NAVIGATION BAR ===== -->
+<nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top">
+    <div class="container">
+        <a class="navbar-brand" href="#">
+            <img src="images/logo2.png" alt="Cleanship Logo" class="navbar-logo">
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+                aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav mx-auto">
+                <li class="nav-item">
+                    <a class="nav-link active" href="index.html">Home</a>
+                </li>
+                <!-- <li class="nav-item">
+                    <a class="nav-link" href="about.html">About</a>
+                </li> -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="servicesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Services
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="servicesDropdown">
+                        <li><a class="dropdown-item" href="Hold-Cleaning-Services.html">Hold Cleaning</a></li>
+                        <li><a class="dropdown-item" href="Tank-Cleaning-Services.html">Tank Cleaning</a></li>
+                        <li><a class="dropdown-item" href="Hull-Cleaning-Services.html">Underwater Hull Cleaning</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="contact.html">Contact</a>
+                </li>
+            </ul>
+            <div class="d-flex">
+                <a href="contact.html" class="btn btn-primary get-quote-btn">Get Quote</a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+    <!-- ===== CAROUSEL SECTION ===== -->
+    <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel" data-aos="fade-down" data-aos-duration="1000">
+        
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="images/ca1.jpg" class="d-block w-100" alt="Beautiful landscape">
+                <div class="carousel-caption d-md-block" id="carouslel-text">
+                    <h5>Our operation management platform makes Marine Cleaning Services an effortless task.</h5>
+                    <p>Hold Cleaning | Tank Cleaning | Undewater Hull Cleaning</p>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="images/ca2.jpg" class="d-block w-100" alt="City skyline at sunset">
+                <div class="carousel-caption d-md-block" id="carouslel-text">
+                    <h5>Experience hassle-free Marine Cleaning Services through our advanced operation management platform.</h5>
+                    <p>Hold Cleaning | Tank Cleaning | Undewater Hull Cleaning</p>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="images/ca4.jpeg" class="d-block w-100" alt="Mountains covered in snow">
+                <div class="carousel-caption d-md-block" id="carouslel-text">
+                    <h5>Vessel cleaning has never been easier, thanks to our operation management platform.</h5>
+                    <p>Hold Cleaning | Tank Cleaning | Undewater Hull Cleaning</p>
+                </div>
+            </div>
+        </div>
+        <style>
+          #carouslel-text{
+              margin-bottom: 170px;
+              padding: 20px;
+          }
+
+          #carouslel-text h5 {
+              font-size: 2.5rem;
+              margin-bottom: 15px;
+              line-height: 1.3;
+          }
+
+          #carouslel-text p {
+              font-size: 1.2rem;
+              margin-bottom: 0;
+          }
+
+          @media (max-width: 1400px) {
+              #carouslel-text {
+                  margin-bottom: 150px;
+              }
+              #carouslel-text h5 {
+                  font-size: 2.2rem;
+              }
+              #carouslel-text p {
+                  font-size: 1.1rem;
+              }
+          }
+
+          @media (max-width: 1200px) {
+              #carouslel-text {
+                  margin-bottom: 130px;
+              }
+              #carouslel-text h5 {
+                  font-size: 2rem;
+              }
+              #carouslel-text p {
+                  font-size: 1rem;
+              }
+          }
+
+          @media (max-width: 992px) {
+              #carouslel-text {
+                  margin-bottom: 100px;
+              }
+              #carouslel-text h5 {
+                  font-size: 1.8rem;
+              }
+              #carouslel-text p {
+                  font-size: 0.9rem;
+              }
+          }
+
+          @media (max-width: 768px) {
+              #carouslel-text {
+                  margin-bottom: 80px;
+                  padding: 15px;
+              }
+              #carouslel-text h5 {
+                  font-size: 1.5rem;
+              }
+              #carouslel-text p {
+                  font-size: 0.85rem;
+              }
+          }
+
+          @media (max-width: 576px) {
+              #carouslel-text {
+                  margin-bottom: 50px;
+                  padding: 10px;
+              }
+              #carouslel-text h5 {
+                  font-size: 1.2rem;
+              }
+              #carouslel-text p {
+                  font-size: 0.8rem;
+              }
+          }
+
+          @media (max-width: 400px) {
+              #carouslel-text {
+                  margin-bottom: 30px;
+                  padding: 8px;
+              }
+              #carouslel-text h5 {
+                  font-size: 1rem;
+              }
+              #carouslel-text p {
+                  font-size: 0.75rem;
+              }
+          }
+        </style> 
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+        <div class="carousel-indicators">
+          <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
+                  aria-current="true" aria-label="Slide 1"></button>
+          <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"
+                  aria-label="Slide 2"></button>
+          <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"
+                  aria-label="Slide 3"></button>
+      </div>
+    </div>
+
+
+
+    <!-- ===== SEPARATOR SECTION ===== -->
+    <section class="separator-section">
+        <img src="images/rope22.png" alt="Rope Divider" class="rope-divider" />
+        <img src="images/anchor2.png" alt="Anchor Icon" class="anchor-icon" />
+    </section>
+
+<style>
+    .separator-section {
+  position: relative;
+  width: 100%;
+  height: 22px; /* Adjust to match rope height */
+  background-color: white;
+  z-index: 10;
+}
+
+.rope-divider {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.anchor-icon {
+  position: absolute;
+  bottom: -105px; /* Adjust to overlap nicely */
+  right: 5%; /* Change as needed */
+  height: 280px;
+  z-index: 11;
+  transform: rotate(295deg); 
+}
+
+/* Hide the anchor icon on tablets and mobile */
+@media (max-width: 1024px) {
+    .anchor-icon {
+      display: none;
+    }
+  }
+
+
+</style>
+
+
+<div class="container py-5 about-section" id="about" data-aos="fade-up" data-aos-duration="1000">
+    <div class="row align-items-center mb-4">
+        <div class="col-md-6" data-aos="fade-right" data-aos-duration="1000" data-aos-delay="200">
+            <div class="about-content">
+                <p class="text-uppercase fw-bold text-custom-color about-label">About Us</p>
+                <h4 class="about-title">Leading Global Platform for Marine Cleaning Service Vendors</h4>
+                <p class="about-description">
+                    Supercaro provides seamless access to a vast network of trusted and thoroughly vetted suppliers across over 1,100 ports worldwide. Our platform empowers operations teams by streamlining the Marine Cleaning process, enabling them to achieve excellence with ease. By using MarineSupercargo, teams can save valuable time while maintaining full transparency and control over their operations. With features that offer a comprehensive overview of inventory, expenditure, and cleaning history, MarineSupercargo ensures that your Marine Cleaning activities are efficient, organized, and reliable. We're dedicated to simplifying the complexities of global operations, so you can focus on achieving the highest standards in your Cargo operations.
+                </p>
+                <a href="#" class="btn btn-primary mt-3 about-btn">Contact Us</a>
+            </div>
+        </div>
+        <div class="col-md-6 hide-md" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="400">
+            <div class="about-image-container">
+                <img src="images/card5.jpg" alt="About Image" class="about-image">
+                <div class="image-overlay"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ===== WHY CHOOSE US SECTION ===== -->
+<section id="why-choose-us" class="py-5 why-choose-us" data-aos="fade-up" data-aos-duration="1000">
+    <div class="container">
+        <div class="section-header" data-aos="fade-down" data-aos-duration="1000">
+            <h5>Why Choose Us?</h5>
+            <h2>Reliable & Efficient Marine Cleaning Services</h2>
+            <p class="lead">We link you with thoroughly vetted vendors offering cargo hold and hull cleaning solutions, ensuring compliance, operational efficiency, and minimal downtime. Leveraging advanced technology and a network of local suppliers, we deliver safe, dependable, and environmentally friendly services. Our solutions are designed to keep your vessels in optimal condition and fully prepared for their next cargo load.</p>
+        </div>
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4 mt-4">
+            <div class="col">
+                <div class="feature-card" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="100">
+                    <div class="feature-icon">
+                        <i class="bi bi-lightning-charge"></i>
+                    </div>
+                    <h5>Thorough Cleaning</h5>
+                    <p>We ensure every corner of the cargo hold is spotless and ready for use.</p>
+                </div>
+            </div>
+            <div class="col">
+                <div class="feature-card" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="200">
+                    <div class="feature-icon">
+                        <i class="bi bi-cone-striped"></i>
+                    </div>
+                    <h5>Safety & Compliance</h5>
+                    <p>Fully compliant with international safety and environmental standards.</p>
+                </div>
+            </div>
+            <div class="col">
+                <div class="feature-card" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="300">
+                    <div class="feature-icon">
+                        <i class="bi bi-shield-check"></i>
+                    </div>
+                    <h5>Advanced Methods</h5>
+                    <p>Eco-friendly tools and techniques for fast, efficient cleaning.</p>
+                </div>
+            </div>
+            <div class="col">
+                <div class="feature-card" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="400">
+                    <div class="feature-icon">
+                        <i class="bi bi-people-fill"></i>
+                    </div>
+                    <h5>Skilled Team</h5>
+                    <p>Experienced professionals delivering reliable, high-quality results.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 
+<div class="py-4 logo-slider" data-aos="fade-up" data-aos-duration="1000">
+    <div class="logos-wrapper">
+        <div class="logos">
+            <img src="images/Cleanship-Featured-in-United-News-on-india.webp" alt="Logo 1">
+            <img src="images/Cleanship-Featured-in-Asia-News.webp" alt="Logo 2">
+            <img src="images/Cleanship-Featured-in-Dailyhunt.webp" alt="Logo 3">
+            <img src="images/Cleanship-Featured-in-Economic-India.webp" alt="Logo 4">
+            <img src="images/Cleanship-Featured-in-Flipboard.webp" alt="Logo 5">
+            <img src="images/Cleanship-Featured-in-Google-NEws.webp" alt="Logo 6">
+            <img src="images/Cleanship-Featured-in-Jio-News.webp" alt="Logo 7">
+            <img src="images/Cleanship-Featured-in-Medium.webp" alt="Logo 8">
+            <img src="images/Cleanship-Featured-in-Sangri-Today.webp" alt="Logo 9">
+            <img src="images/Cleanship-Featured-in-SR.webp" alt="Logo 10">
+            <img src="images/Cleanship-Featured-in-The-Outlook-Mirror.webp" alt="Logo 11">
+            <img src="images/Cleanship-Featured-in-United-News-on-india.webp" alt="Logo 1">
+            <img src="images/Cleanship-Featured-in-Asia-News.webp" alt="Logo 2">
+            <img src="images/Cleanship-Featured-in-Dailyhunt.webp" alt="Logo 3">
+            <img src="images/Cleanship-Featured-in-Economic-India.webp" alt="Logo 4">
+            <img src="images/Cleanship-Featured-in-Flipboard.webp" alt="Logo 5">
+            <img src="images/Cleanship-Featured-in-Google-NEws.webp" alt="Logo 6">
+            <img src="images/Cleanship-Featured-in-Jio-News.webp" alt="Logo 7">
+            <img src="images/Cleanship-Featured-in-Medium.webp" alt="Logo 8">
+            <img src="images/Cleanship-Featured-in-Sangri-Today.webp" alt="Logo 9">
+            <img src="images/Cleanship-Featured-in-SR.webp" alt="Logo 10">
+            <img src="images/Cleanship-Featured-in-The-Outlook-Mirror.webp" alt="Logo 11">
+        </div>
+    </div>
+</div>
+ -->
+
+
+    <!-- ===== SERVICES SECTION ===== -->
+<!-- Parallax Background with Overlay and Cards -->
+<section id="services" class="fixed-bg-section text-white text-center">
+    <!-- Section Heading -->
+    <div class="container z-2 mb-5">
+      <h2 class="fw-bold">Our Core Services</h2>
+      <p class="lead">Reliable, efficient and tailored Marine Cleaning Services.</p>
+    </div>
+  
+    <!-- Cards -->
+    <div class="container z-2">
+      <div class="row justify-content-center g-4">
+        
+        <div class="container z-2">
+            <div class="row justify-content-center g-4">
+              
+              <div class="col-md-4">
+                <div class="card bg-white shadow-lg service-card" data-aos="flip-left" data-aos-duration="1000">
+                  <img src="images/card1.jpg" class="card-img-top" alt="Hold Cleaning at Port">
+                  <div class="card-body text-dark">
+                    <h5 class="card-title">Hold Cleaning</h5>
+                    <p class="card-text">This services are meticulously designed to ensure they are thoroughly cleaned and prepared for the next cargo load.</p>
+                    <a href="Hold-Cleaning-Services.html" class="btn btn-primary">Learn More</a>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="col-md-4">
+                <div class="card bg-white shadow-lg service-card " data-aos="flip-right" data-aos-duration="1000">
+                  <img src="images/chemical-tank-cleaning-sml.jpg" class="card-img-top" alt="Hold Cleaning at Sea">
+                  <div class="card-body text-dark">
+                    <h5 class="card-title">Tank Cleaning</h5>
+                    <p class="card-text">Marine Supercargo presents the optimal solution for anyone in search of reliable suppliers of Tank Cleaning.</p>
+                    <a href="Tank-Cleaning-Services.html" class="btn btn-primary">Learn More</a>
+                  </div>
+                </div>
+              </div>
+        
+              <div class="col-md-4">
+                <div class="card bg-white shadow-lg service-card" data-aos="flip-up" data-aos-duration="1000">
+                  <img src="images/underwater.jpeg" class="card-img-top" alt="Underwater Hull Cleaning">
+                  <div class="card-body text-dark">
+                    <h5 class="card-title">Underwater Hull Cleaning</h5>
+                    <p class="card-text">Specialized underwater cleaning of hulls to reduce drag, improve efficiency, and extend vessel<br> lifespan.</p>
+                    <a href="Hull-Cleaning-Services.html" class="btn btn-primary">Learn More</a>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+            </div>
+        
+  
+      </div>
+    </div>
+  </section>  
+
+
+<!-- ===== PROCESS SECTION ===== -->
+  <section id="process" class="process-section" data-aos="fade-up" data-aos-duration="1000">
+    <h2 class="section-title" data-aos="fade-down" data-aos-duration="1000">Our Marine Cleaning Process</h2>
+    <div class="process-grid">
+      <div class="process-card" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="100">
+        <img src="images/1.svg" alt="Appraising" />
+        <h3>Appraisal</h3>
+        <p>We inspect the vessel carefully
+            to determine the cleaning
+            requirements and design the most
+            effective cleaning strategy.
+            </p>
+        <span class="step-number">01</span>
+      </div>
+
+      <div class="process-card" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="200">
+        <img src="images/2.svg" alt="Planning" />
+        <h3>Planning</h3>
+        <p>We develop a detailed cleaning plan tailored to your ship's unique needs to ensure thorough and efficient results.</p>
+        <span class="step-number">02</span>
+      </div>
+
+      <div class="process-card" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="300">
+        <img src="images/3.svg" alt="Execution" />
+        <h3>Execution</h3>
+        <p>Our team uses advanced tools and eco-friendly techniques to carry out a complete and safe cleaning process.</p>
+        <span class="step-number">03</span>
+      </div>
+
+      <div class="process-card" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="400">
+        <img src="images/4.svg" alt="Monitoring" />
+        <h3>Monitoring</h3>
+        <p>We monitor the cleaning process and conduct final checks to ensure the cargo hold meets the highest standards.</p>
+        <span class="step-number">04</span>
+      </div>
+    </div>
+  </section>
+
+
+  <style>
+    .process-section {
+      padding: 80px 30px;
+      /* background-color: #f8f9fa; */
+      background-color: white;
+      margin: auto;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .section-title {
+      font-size: 2.5rem;
+      color: #222;
+      margin-bottom: 60px;
+      position: relative;
+      display: inline-block;
+    }
+
+    .section-title::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 3px;
+      background-color: var(--primary-color);
+      transition: width 0.3s ease;
+    }
+
+    .section-title:hover::after {
+      width: 120px;
+    }
+
+    .process-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 30px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .process-card {
+      background: #fff;
+      border-radius: 16px;
+      padding: 30px 20px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .process-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(45deg, var(--primary-color), transparent);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .process-card:hover {
+      transform: translateY(-10px) scale(1.02);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+    }
+
+    .process-card:hover::before {
+      opacity: 0.1;
+    }
+
+    .process-card img {
+      width: 60px;
+      height: 60px;
+      margin-bottom: 20px;
+      transition: transform 0.3s ease;
+    }
+
+    .process-card:hover img {
+      transform: scale(1.1) rotate(5deg);
+    }
+
+    .process-card h3 {
+      font-size: 1.25rem;
+      color: var(--primary-color);
+      margin-bottom: 12px;
+      transition: color 0.3s ease;
+    }
+
+    .process-card:hover h3 {
+      color: var(--primary-color);
+    }
+
+    .process-card p {
+      font-size: 0.95rem;
+      color: #555;
+      line-height: 1.6;
+      transition: color 0.3s ease;
+    }
+
+    .process-card:hover p {
+      color: #333;
+    }
+
+    .step-number {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background-color: var(--primary-color);
+      color: white;
+      font-weight: bold;
+      padding: 8px 12px;
+      border-radius: 50px;
+      font-size: 0.9rem;
+      transition: all 0.3s ease;
+    }
+
+    .process-card:hover .step-number {
+      transform: scale(1.1);
+      background-color: var(--primary-color);
+    }
+
+    @media (max-width: 768px) {
+      .process-section {
+        padding: 40px 20px;
+      }
+
+      .section-title {
+        font-size: 2rem;
+      }
+
+      .process-grid {
+        gap: 20px;
+      }
+
+      .process-card {
+        padding: 20px 15px;
+      }
+    }
+  </style> 
+
+
+<!-- ===== VENDOR NETWORK SECTION =====
+<section class="vendor-network py-5" data-aos="fade-up" data-aos-duration="1000">
+    <div class="container">
+        <div class="section-header text-center mb-5" data-aos="fade-down" data-aos-duration="1000">
+            <h5>Global Presence</h5>
+            <h2>Our Vendor Network</h2>
+            <p class="lead">Get access to the entire global Cleaning service marketplace, to the world's largest service database provider, no matter your size or location.</p>
+        </div>
+
+        <div class="row align-items-center">
+            <div class="col-lg-4 mb-4 mb-lg-0">
+                <div class="network-stats" data-aos="fade-right" data-aos-duration="1000">
+                    <div class="stat-item">
+                        <i class="bi bi-globe2"></i>
+                        <h3>1000+</h3>
+                        <p>Global Ports</p>
+                    </div>
+                    <div class="stat-item">
+                        <i class="bi bi-building"></i>
+                        <h3>30+</h3>
+                        <p>Continents</p>
+                    </div>
+                    <div class="stat-item">
+                        <i class="bi bi-people-fill"></i>
+                        <h3>520+</h3>
+                        <p>Happy Clients</p>
+                    </div>
+                </div>
+
+                <div class="port-categories mt-4" data-aos="fade-right" data-aos-delay="200">
+                    <div class="port-category" onclick="highlightRegion('indian')">
+                        <h4><i class="bi bi-geo-alt-fill"></i> Indian Ports</h4>
+                        <p>Mumbai • Kolkata • Chennai • More...</p>
+                    </div>
+                    <div class="port-category" onclick="highlightRegion('middle-east')">
+                        <h4><i class="bi bi-geo-alt-fill"></i> Middle East Ports</h4>
+                        <p>Dubai • Jeddah • Muscat • More...</p>
+                    </div>
+                    <div class="port-category" onclick="highlightRegion('asian')">
+                        <h4><i class="bi bi-geo-alt-fill"></i> Asian Ports</h4>
+                        <p>Singapore • Shanghai • Tokyo • Hong Kong • More...</p>
+                    </div>
+                    <div class="port-category" onclick="highlightRegion('european')">
+                        <h4><i class="bi bi-geo-alt-fill"></i> European Ports</h4>
+                        <p>Rotterdam • Hamburg • Marseille • Piraeus • More...</p>
+                    </div>
+                    <div class="port-category" onclick="highlightRegion('american')">
+                        <h4><i class="bi bi-geo-alt-fill"></i> American Ports</h4>
+                        <p>New York • Los Angeles • Santos • More...</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-8">
+                <div class="world-map-container" data-aos="fade-left" data-aos-duration="1000">
+                    <div class="map-points">
+                        
+                        <div class="map-point indian" style="top: 48%; left: 70%" data-port="Mumbai">
+                            <div class="tooltip">Mumbai, India</div>
+                        </div>
+                        <div class="map-point indian" style="top: 45%; left: 71%" data-port="Kolkata">
+                            <div class="tooltip">Kolkata, India</div>
+                        </div>
+                        <div class="map-point indian" style="top: 47%; left: 69%" data-port="Chennai">
+                            <div class="tooltip">Chennai, India</div>
+                        </div>
+
+                        
+                        <div class="map-point middle-east" style="top: 45%; left: 65%" data-port="Dubai">
+                            <div class="tooltip">Dubai, UAE</div>
+                        </div>
+                        <div class="map-point middle-east" style="top: 44%; left: 63%" data-port="Jeddah">
+                            <div class="tooltip">Jeddah, Saudi Arabia</div>
+                        </div>
+                        <div class="map-point middle-east" style="top: 46%; left: 67%" data-port="Muscat">
+                            <div class="tooltip">Muscat, Oman</div>
+                        </div>
+
+                        <div class="map-point asian" style="top: 58%; left: 75%" data-port="Singapore">
+                            <div class="tooltip">Singapore</div>
+                        </div>
+                        <div class="map-point asian" style="top: 42%; left: 82%" data-port="Shanghai">
+                            <div class="tooltip">Shanghai, China</div>
+                        </div>
+                        <div class="map-point asian" style="top: 40%; left: 85%" data-port="Tokyo">
+                            <div class="tooltip">Tokyo, Japan</div>
+                        </div>
+                        <div class="map-point asian" style="top: 45%; left: 80%" data-port="HongKong">
+                            <div class="tooltip">Hong Kong</div>
+                        </div>
+
+                        <div class="map-point european" style="top: 35%; left: 48%" data-port="Rotterdam">
+                            <div class="tooltip">Rotterdam, Netherlands</div>
+                        </div>
+                        <div class="map-point european" style="top: 37%; left: 50%" data-port="Hamburg">
+                            <div class="tooltip">Hamburg, Germany</div>
+                        </div>
+                        <div class="map-point european" style="top: 39%; left: 47%" data-port="Marseille">
+                            <div class="tooltip">Marseille, France</div>
+                        </div>
+                        <div class="map-point european" style="top: 41%; left: 52%" data-port="Piraeus">
+                            <div class="tooltip">Piraeus, Greece</div>
+                        </div>
+
+                        
+                        <div class="map-point american" style="top: 42%; left: 20%" data-port="NewYork">
+                            <div class="tooltip">New York, USA</div>
+                        </div>
+                        <div class="map-point american" style="top: 45%; left: 15%" data-port="LosAngeles">
+                            <div class="tooltip">Los Angeles, USA</div>
+                        </div>
+                        <div class="map-point american" style="top: 65%; left: 30%" data-port="Santos">
+                            <div class="tooltip">Santos, Brazil</div>
+                        </div>
+                    </div>
+                    <img src="images/world.png" alt="World Map" class="img-fluid">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+    .vendor-network {
+        background-color: #f8f9fa;
+        position: relative;
+        overflow: hidden;
+        padding: 80px 0;
+    }
+
+    .vendor-network .section-header {
+        margin-bottom: 60px;
+    }
+
+    .vendor-network .section-header h5 {
+        color: var(--primary-color);
+        font-weight: bold;
+        font-size: 1.1rem;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        margin-bottom: 15px;
+        position: relative;
+        display: inline-block;
+    }
+
+    .vendor-network .section-header h5::after {
+        content: '';
+        position: absolute;
+        bottom: -8px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 40px;
+        height: 2px;
+        background-color: var(--primary-color);
+        transition: width 0.3s ease;
+    }
+
+    .vendor-network .section-header:hover h5::after {
+        width: 80px;
+    }
+
+    .vendor-network .section-header h2 {
+        font-weight: bold;
+        font-size: 2.5rem;
+        margin-bottom: 20px;
+    }
+
+    .network-stats {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+        margin-bottom: 30px;
+    }
+
+    .stat-item {
+        text-align: center;
+        padding: 20px;
+        background: white;
+        border-radius: 10px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+        transition: transform 0.3s ease;
+    }
+
+    .stat-item:hover {
+        transform: translateY(-5px);
+    }
+
+    .stat-item i {
+        font-size: 2rem;
+        color: var(--primary-color);
+        margin-bottom: 10px;
+    }
+
+    .stat-item h3 {
+        font-size: 1.8rem;
+        color: var(--primary-color);
+        margin-bottom: 5px;
+        font-weight: bold;
+    }
+
+    .stat-item p {
+        color: #666;
+        margin: 0;
+        font-size: 0.9rem;
+    }
+
+    .port-categories {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .port-category {
+        background: white;
+        padding: 15px 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+
+    .port-category:hover {
+        transform: translateX(10px);
+        background: var(--primary-color);
+        color: white;
+    }
+
+    .port-category:hover h4,
+    .port-category:hover p,
+    .port-category:hover i {
+        color: white;
+    }
+
+    .port-category h4 {
+        font-size: 1.1rem;
+        color: var(--primary-color);
+        margin-bottom: 5px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .port-category p {
+        margin: 0;
+        color: #666;
+        font-size: 0.9rem;
+    }
+
+    .world-map-container {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        min-height: 400px;
+    }
+
+    .map-points {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+    }
+
+    .map-point {
+        position: absolute;
+        width: 14px;
+        height: 14px;
+        background-color: var(--primary-color);
+        border-radius: 50%;
+        cursor: pointer;
+        pointer-events: auto;
+        transition: all 0.3s ease;
+        animation: pulse 2s infinite;
+        transform-origin: center;
+        z-index: 5;
+        margin-left: -7px;
+        margin-top: -7px;
+    }
+
+    .map-point::before {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 73, 167, 0.4);
+        border-radius: 50%;
+        animation: ripple 2s infinite;
+        z-index: -1;
+    }
+
+    .map-point .tooltip {
+        position: absolute;
+        bottom: 100%;
+        left: 50%;
+        transform: translateX(-50%);
+        background-color: var(--primary-color);
+        color: white;
+        padding: 6px 12px;
+        border-radius: 4px;
+        font-size: 12px;
+        white-space: nowrap;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s ease;
+        pointer-events: none;
+        z-index: 100;
+    }
+
+    .map-point:hover .tooltip {
+        opacity: 1;
+        visibility: visible;
+        bottom: calc(100% + 5px);
+    }
+
+    .map-point.highlight {
+        transform: scale(1.5);
+        z-index: 10;
+        animation: none;
+    }
+
+    .map-point.highlight::before {
+        animation: none;
+    }
+
+    .map-point.dim {
+        opacity: 0.3;
+        animation: none;
+    }
+
+    .map-point.dim::before {
+        animation: none;
+    }
+
+    @keyframes pulse {
+        0% {
+            transform: scale(1);
+            opacity: 1;
+        }
+        50% {
+            transform: scale(1.3);
+            opacity: 0.7;
+        }
+        100% {
+            transform: scale(1);
+            opacity: 1;
+        }
+    }
+
+    @keyframes ripple {
+        0% {
+            transform: translate(-50%, -50%) scale(1);
+            opacity: 1;
+        }
+        100% {
+            transform: translate(-50%, -50%) scale(2.5);
+            opacity: 0;
+        }
+    }
+
+    /* Updated point positions for better responsiveness */
+    /* Indian Ports */
+    .map-point.indian[data-port="Mumbai"] { top: 53%; left: 71%; }
+    .map-point.indian[data-port="Kolkata"] { top: 51%; left: 74%; }
+    .map-point.indian[data-port="Chennai"] { top: 56%; left: 73%; }
+
+    /* Middle East Ports */
+    .map-point.middle-east[data-port="Dubai"] { top: 51%; left: 65%; }
+    .map-point.middle-east[data-port="Jeddah"] { top: 51%; left: 61%; }
+    .map-point.middle-east[data-port="Muscat"] { top: 51%; left: 67%; }
+
+    /* Asian Ports */
+    .map-point.asian[data-port="Singapore"] { top: 62%; left: 77%; }
+    .map-point.asian[data-port="Shanghai"] { top: 48%; left: 83%; }
+    .map-point.asian[data-port="Tokyo"] { top: 45%; left: 89%; }
+    .map-point.asian[data-port="HongKong"] { top: 51%; left: 81%; }
+
+    /* European Ports */
+    .map-point.european[data-port="Rotterdam"] { top: 38%; left: 50%; }
+    .map-point.european[data-port="Hamburg"] { top: 37%; left: 52%; }
+    .map-point.european[data-port="Marseille"] { top: 43%; left: 49%; }
+    .map-point.european[data-port="Piraeus"] { top: 45%; left: 55%; }
+
+    /* American Ports */
+    .map-point.american[data-port="NewYork"] { top: 44%; left: 28%; }
+    .map-point.american[data-port="LosAngeles"] { top: 45%; left: 17%; }
+    .map-point.american[data-port="Santos"] { top: 70%; left: 35%; }
+
+    @media (max-width: 1400px) {
+        .map-point {
+            width: 12px;
+            height: 12px;
+            margin-left: -6px;
+            margin-top: -6px;
+        }
+    }
+
+    @media (max-width: 1200px) {
+        .map-point {
+            width: 10px;
+            height: 10px;
+            margin-left: -5px;
+            margin-top: -5px;
+        }
+    }
+
+    @media (max-width: 991.98px) {
+        .map-point {
+            width: 8px;
+            height: 8px;
+            margin-left: -4px;
+            margin-top: -4px;
+        }
+    }
+
+    @media (max-width: 768px) {
+        .map-point {
+            width: 6px;
+            height: 6px;
+            margin-left: -3px;
+            margin-top: -3px;
+        }
+    }
+
+    @media (max-width: 576px) {
+        .map-point {
+            width: 4px;
+            height: 4px;
+            margin-left: -2px;
+            margin-top: -2px;
+        }
+    }
+
+    .world-map-container {
+        position: relative;
+        width: 100%;
+        height: 0;
+        padding-bottom: 50%;
+        overflow: hidden;
+        background-color: #f8f9fa;
+    }
+
+    .world-map-container img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+    }
+
+    @media (max-width: 1200px) {
+        .network-stats {
+            grid-template-columns: repeat(3, 1fr);
+        }
+    }
+
+    @media (max-width: 991.98px) {
+        .vendor-network {
+            padding: 60px 0;
+        }
+
+        .network-stats {
+            grid-template-columns: repeat(3, 1fr);
+        }
+
+        .world-map-container {
+            min-height: 300px;
+            margin-top: 30px;
+        }
+    }
+
+    @media (max-width: 768px) {
+        .vendor-network {
+            padding: 40px 0;
+        }
+
+        .network-stats {
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+        }
+
+        .stat-item {
+            padding: 15px;
+        }
+
+        .stat-item i {
+            font-size: 1.5rem;
+        }
+
+        .stat-item h3 {
+            font-size: 1.5rem;
+        }
+
+        .world-map-container {
+            min-height: 250px;
+        }
+
+        .map-point {
+            width: 8px;
+            height: 8px;
+        }
+    }
+
+    @media (max-width: 576px) {
+        .network-stats {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        .world-map-container {
+            min-height: 200px;
+        }
+
+        .map-point {
+            width: 6px;
+            height: 6px;
+        }
+
+        .vendor-network .section-header h2 {
+            font-size: 2rem;
+        }
+    }
+</style>
+
+<script>
+    function highlightRegion(region) {
+        // Remove any existing highlights
+        document.querySelectorAll('.map-point').forEach(point => {
+            point.classList.remove('highlight');
+            point.classList.remove('dim');
+        });
+
+        // Highlight points of selected region and dim others
+        document.querySelectorAll('.map-point').forEach(point => {
+            if (point.classList.contains(region)) {
+                point.classList.add('highlight');
+            } else {
+                point.classList.add('dim');
+            }
+        });
+    }
+
+    // Reset highlights when clicking outside port categories
+    document.addEventListener('click', (e) => {
+        if (!e.target.closest('.port-category')) {
+            document.querySelectorAll('.map-point').forEach(point => {
+                point.classList.remove('highlight');
+                point.classList.remove('dim');
+            });
+        }
+    });
+</script> -->
+
+
+
+<!-- ===== GLOBAL PORTS SECTION ===== -->
+<section class="global-ports-section" id="mapss">
+    <div class="container">
+        <div class="section-header text-center mb-5" data-aos="fade-down" data-aos-duration="1000">
+            <h5>Global Presence</h5>
+            <h2>Our Vendor Network</h2>
+            <p class="lead">Get access to the entire global Cleaning service marketplace, to the world's largest service database provider, no matter your size or location.</p>
+        </div>
+        
+        <div class="row align-items-center" data-aos="fade-up">
+            
+            
+            
+                <div class="map-container">
+                    <div id="map"></div>
+                </div>
+            
+        </div>
+    </div>
+</section>
+
+<!-- Add Leaflet CSS -->
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+      integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+      crossorigin=""/>
+
+<!-- Add Leaflet JavaScript -->
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+        integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+        crossorigin="">
+</script>
+
+<style>
+    .global-ports-section {
+        background-color: white;
+        position: relative;
+        overflow: hidden;
+        padding: 80px 0;
+    }
+
+    .global-ports-section .section-title {
+        color: var(--primary-color);
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+        font-weight: 600;
+        position: relative;
+        padding-bottom: 15px;
+    }
+
+    .global-ports-section .section-title::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 50px;
+        height: 3px;
+        background-color: var(--primary-color);
+    }
+
+    .global-ports-section .section-subtitle {
+        color: #666;
+        font-size: 1.1rem;
+        max-width: 800px;
+        margin: 0 auto;
+    }
+
+    
+
+    
+
+    
+
+    
+
+    .map-container {
+        position: relative;
+        background: white;
+        padding: 15px;
+        border-radius: 15px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        height: 100%;
+        min-height: 500px;
+    }
+
+    #map {
+        height: 100%;
+        min-height: 500px;
+        width: 100%;
+        border-radius: 10px;
+        overflow: hidden;
+    }
+
+    .custom-marker {
+        background-color: var(--primary-color);
+        border-radius: 50%;
+        border: 2px solid white;
+        box-shadow: 0 0 10px rgba(0,0,0,0.3);
+    }
+
+    .marker-pulse {
+        animation: marker-pulse 2s infinite;
+    }
+
+    @keyframes marker-pulse {
+        0% {
+            box-shadow: 0 0 0 0 rgba(0, 73, 167, 0.4);
+        }
+        70% {
+            box-shadow: 0 0 0 10px rgba(0, 73, 167, 0);
+        }
+        100% {
+            box-shadow: 0 0 0 0 rgba(0, 73, 167, 0);
+        }
+    }
+
+    .leaflet-popup-content-wrapper {
+        background-color: rgba(255, 255, 255, 0.95);
+        border-radius: 8px;
+        box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+    }
+
+    .port-popup {
+        text-align: center;
+        padding: 10px;
+    }
+
+    .port-popup h4 {
+        color: var(--primary-color);
+        margin: 0 0 5px;
+        font-size: 16px;
+        font-weight: 600;
+    }
+
+    .port-popup p {
+        color: #666;
+        margin: 0;
+        font-size: 14px;
+        line-height: 1.4;
+    }
+
+    .port-popup .services {
+        margin-top: 8px;
+        padding-top: 8px;
+        border-top: 1px solid rgba(0,0,0,0.1);
+        font-size: 12px;
+    }
+
+    @media (max-width: 991.98px) {
+        .global-ports-section {
+            padding: 60px 0;
+        }
+
+        
+
+        .map-container {
+            min-height: 400px;
+        }
+
+        #map {
+            min-height: 400px;
+        }
+    }
+
+    @media (max-width: 767.98px) {
+        .global-ports-section {
+            padding: 40px 0;
+        }
+
+        .global-ports-section .section-title {
+            font-size: 2rem;
+        }
+
+        
+
+        .stat-item h4 {
+            font-size: 1.5rem;
+        }
+
+        .map-container {
+            min-height: 350px;
+        }
+
+        #map {
+            min-height: 350px;
+        }
+
+        .port-popup {
+            padding: 8px;
+        }
+
+        .port-popup h4 {
+            font-size: 14px;
+        }
+
+        .port-popup p {
+            font-size: 12px;
+        }
+    }
+
+    @media (max-width: 575.98px) {
+        .map-container {
+            min-height: 300px;
+        }
+
+        #map {
+            min-height: 300px;
+        }
+
+        .stat-item h4 {
+            font-size: 1.3rem;
+        }
+
+        
+    }
+</style>
+
+<script>
+    // Port data remains the same
+    const ports = [
+        // Indian Ports
+        { name: 'Mumbai', lat: 19.0760, lng: 72.8777, country: 'India' },
+        { name: 'Chennai', lat: 13.0827, lng: 80.2707, country: 'India' },
+        { name: 'Kolkata', lat: 22.5726, lng: 88.3639, country: 'India' },
+        { name: 'Visakhapatnam', lat: 17.6868, lng: 83.2185, country: 'India'},
+        { name: 'Kochi', lat: 9.9312, lng: 76.2673, country: 'India'},
+        
+        // Middle East Ports
+        { name: 'Dubai', lat: 25.2048, lng: 55.2708, country: 'UAE'},
+        { name: 'Jeddah', lat: 21.5433, lng: 39.1728, country: 'Saudi Arabia' },
+        { name: 'Muscat', lat: 23.5880, lng: 58.3829, country: 'Oman'},
+        { name: 'Abu Dhabi', lat: 24.4539, lng: 54.3773, country: 'UAE'},
+        
+        // Asian Ports
+        { name: 'Singapore', lat: 1.3521, lng: 103.8198, country: 'Singapore' },
+        { name: 'Shanghai', lat: 31.2304, lng: 121.4737, country: 'China' },
+        { name: 'Hong Kong', lat: 22.3193, lng: 114.1694, country: 'China' },
+        { name: 'Tokyo', lat: 35.6762, lng: 139.6503, country: 'Japan' },
+        { name: 'Busan', lat: 35.1796, lng: 129.0756, country: 'South Korea'},
+        
+        // European Ports
+        { name: 'Rotterdam', lat: 51.9225, lng: 4.4792, country: 'Netherlands'},
+        { name: 'Hamburg', lat: 53.5511, lng: 9.9937, country: 'Germany' },
+        { name: 'Antwerp', lat: 51.2194, lng: 4.4025, country: 'Belgium'},
+        { name: 'Marseille', lat: 43.2965, lng: 5.3698, country: 'France'},
+        { name: 'Piraeus', lat: 37.9429, lng: 23.6469, country: 'Greece'},
+        
+        // American Ports
+        { name: 'New York', lat: 40.7128, lng: -74.0060, country: 'USA' },
+        { name: 'Los Angeles', lat: 34.0522, lng: -118.2437, country: 'USA' },
+        { name: 'Miami', lat: 25.7617, lng: -80.1918, country: 'USA' },
+        { name: 'Santos', lat: -23.9618, lng: -46.3322, country: 'Brazil' },
+        { name: 'Vancouver', lat: 49.2827, lng: -123.1207, country: 'Canada'},
+
+        { name: 'Durban', lat: -29.8833, lng: 31.0500, country: 'South Africa' },
+        { name: 'Cape Town', lat: -33.9249, lng: 18.4241, country: 'South Africa' },
+        { name: 'Abidjan', lat: 5.3096, lng: -4.0266, country: 'Ivory Coast' },
+        { name: 'Lagos (Apapa)', lat: 6.4550, lng: 3.3841, country: 'Nigeria' },
+        { name: 'Djibouti', lat: 11.5853, lng: 43.1450, country: 'Djibouti' },
+        { name: 'Dar es Salaam', lat: -6.8333, lng: 39.2000, country: 'Tanzania' },
+        { name: 'Beira', lat: -19.8436, lng: 34.8389, country: 'Mozambique' },
+        { name: 'Walvis Bay', lat: -22.9575, lng: 14.5064, country: 'Namibia' },
+        { name: 'Tanger Med', lat: 35.7903, lng: -5.9833, country: 'Morocco' },
+        { name: 'Tema', lat: 5.6675, lng: -0.0167, country: 'Ghana' },
+
+        // Australian Ports
+        { name: 'Sydney', lat: -33.8688, lng: 151.2093, country: 'Australia' },
+        { name: 'Melbourne', lat: -37.8136, lng: 144.9631, country: 'Australia' },
+        { name: 'Brisbane', lat: -27.4698, lng: 153.0251, country: 'Australia' },
+        { name: 'Fremantle', lat: -32.0540, lng: 115.7478, country: 'Australia' },
+        { name: 'Adelaide', lat: -34.9285, lng: 138.6007, country: 'Australia' },
+        { name: 'Newcastle', lat: -32.9278, lng: 151.7803, country: 'Australia' },
+        { name: 'Port Hedland', lat: -20.3167, lng: 118.5833, country: 'Australia' },
+        { name: 'Gladstone', lat: -23.8500, lng: 151.2500, country: 'Australia' },
+        { name: 'Townsville', lat: -19.2564, lng: 146.8169, country: 'Australia' },
+        { name: 'Darwin', lat: -12.4613, lng: 130.8418, country: 'Australia' },
+
+        // South American Ports
+        { name: 'Buenos Aires', lat: -34.6037, lng: -58.3816, country: 'Argentina' },
+        { name: 'Santos', lat: -23.9618, lng: -46.3322, country: 'Brazil' },
+        { name: 'Callao', lat: -12.0667, lng: -77.1500, country: 'Peru' },
+        { name: 'Valparaíso', lat: -33.0333, lng: -71.6167, country: 'Chile' },
+        { name: 'Guayaquil', lat: -2.1962, lng: -79.8862, country: 'Ecuador' },
+        { name: 'Cartagena', lat: 10.3997, lng: -75.5144, country: 'Colombia' },
+        { name: 'Montevideo', lat: -34.9011, lng: -56.1872, country: 'Uruguay' },
+        { name: 'Rio de Janeiro', lat: -22.9068, lng: -43.1729, country: 'Brazil' },
+        { name: 'Bahía Blanca', lat: -38.7167, lng: -62.2667, country: 'Argentina' },
+        { name: 'San Antonio', lat: -33.5833, lng: -71.6167, country: 'Chile' },
+
+        // Additional European Ports
+        { name: 'Antwerp-Bruges', lat: 51.3025, lng: 4.3115, country: 'Belgium' },
+        { name: 'Hamburg', lat: 53.5511, lng: 9.9937, country: 'Germany' },
+        { name: 'Algeciras', lat: 36.1367, lng: -5.4343, country: 'Spain' },
+        { name: 'Valencia', lat: 39.4423, lng: -0.3165, country: 'Spain' },
+        { name: 'Constanța', lat: 44.1725, lng: 28.6402, country: 'Romania' },
+        { name: 'Gdańsk', lat: 54.3521, lng: 18.6464, country: 'Poland' },
+        { name: 'Barcelona', lat: 41.3851, lng: 2.1734, country: 'Spain' },
+        { name: 'Piraeus', lat: 37.9461, lng: 23.6160, country: 'Greece' },
+        { name: 'Le Havre', lat: 49.4939, lng: 0.1078, country: 'France' },
+        { name: 'Bremerhaven', lat: 53.5509, lng: 8.5489, country: 'Germany' }
+    ];
+
+    function initMap() {
+        // Initialize the map with a light style
+        const map = L.map('map', {
+            zoomControl: false, // We'll add it to the top-right
+            minZoom: 2,
+            maxZoom: 18
+        }).setView([20, 0], 2);
+        
+        // Add custom tile layer with a light theme
+        L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+            attribution: '©OpenStreetMap, ©CartoDB',
+            subdomains: 'abcd',
+            maxZoom: 19
+        }).addTo(map);
+
+        // Add zoom control to the top-right
+        L.control.zoom({
+            position: 'topright'
+        }).addTo(map);
+
+        // Create markers for each port
+        ports.forEach(port => {
+            // Create custom icon with adjusted size for better visibility on light background
+            const icon = L.divIcon({
+                className: 'custom-marker marker-pulse',
+                iconSize: [14, 14]  // Slightly larger for better visibility
+            });
+
+            // Create marker with custom icon
+            const marker = L.marker([port.lat, port.lng], { icon: icon });
+
+            // Create popup content with enhanced styling
+            const popupContent = `
+                <div class="port-popup">
+                    <h4>${port.name}</h4>
+                    <p>${port.country}</p>
+                </div>
+            `;
+
+            // Add popup to marker with custom options
+            marker.bindPopup(popupContent, {
+                maxWidth: 300,
+                className: 'custom-popup'
+            });
+            
+            // Add marker to map
+            marker.addTo(map);
+        });
+
+        // Make the map responsive
+        window.addEventListener('resize', () => {
+            map.invalidateSize();
+        });
+    }
+
+    // Initialize map when DOM is loaded
+    document.addEventListener('DOMContentLoaded', initMap);
+</script>
+
+<style>
+    /* Update marker styles for better visibility on light background */
+    .custom-marker {
+        background-color: var(--primary-color);
+        border-radius: 50%;
+        border: 2px solid white;
+        box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    }
+
+    .marker-pulse {
+        animation: marker-pulse 2s infinite;
+    }
+
+    @keyframes marker-pulse {
+        0% {
+            box-shadow: 0 0 0 0 rgba(0, 73, 167, 0.6);
+        }
+        70% {
+            box-shadow: 0 0 0 15px rgba(0, 73, 167, 0);
+        }
+        100% {
+            box-shadow: 0 0 0 0 rgba(0, 73, 167, 0);
+        }
+    }
+
+    /* Enhanced popup styles for light theme */
+    .leaflet-popup-content-wrapper {
+        background-color: white;
+        border-radius: 10px;
+        box-shadow: 0 3px 15px rgba(0,0,0,0.1);
+    }
+
+    .leaflet-popup-tip {
+        background-color: white;
+    }
+
+    .port-popup {
+        text-align: center;
+        padding: 12px;
+    }
+
+    .port-popup h4 {
+        color: var(--primary-color);
+        margin: 0 0 8px;
+        font-size: 16px;
+        font-weight: 600;
+    }
+
+    .port-popup p {
+        color: #444;
+        margin: 0;
+        font-size: 14px;
+        line-height: 1.4;
+    }
+
+    .port-popup .services {
+        margin-top: 10px;
+        padding-top: 10px;
+        border-top: 1px solid rgba(0,0,0,0.08);
+        font-size: 12px;
+        color: #666;
+    }
+
+    /* Map container styles */
+    .map-container {
+        background: white;
+        padding: 15px;
+        border-radius: 15px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    }
+
+    #map {
+        border-radius: 10px;
+        border: 1px solid rgba(0,0,0,0.05);
+    }
+
+    /* Zoom control styles */
+    .leaflet-control-zoom {
+        border: none !important;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.1) !important;
+    }
+
+    .leaflet-control-zoom a {
+        background-color: white !important;
+        color: var(--primary-color) !important;
+        border: 1px solid rgba(0,0,0,0.1) !important;
+    }
+
+    .leaflet-control-zoom a:hover {
+        background-color: var(--primary-color) !important;
+        color: white !important;
+    }
+
+    /* Responsive adjustments remain the same */
+    @media (max-width: 991.98px) {
+        /* ... existing responsive styles ... */
+    }
+
+    @media (max-width: 767.98px) {
+        /* ... existing responsive styles ... */
+        .custom-marker {
+            border-width: 1.5px;
+        }
+    }
+
+    @media (max-width: 575.98px) {
+        /* ... existing responsive styles ... */
+        .custom-marker {
+            border-width: 1px;
+        }
+    }
+</style>
+
+
+    
+
+  <!-- Faq Section -->
+  <section class="faq section light-background" id="faq">
+    <div class="container">
+      <div class="row align-items-center gy-4">
+        
+        <div class="col-lg-5" data-aos="fade-up">
+          <h2 class="faq-title">Have a question?<br>Check out the FAQ's</h2>
+          <p class="faq-description">Here are some frequently asked questions to help you understand our services better. If you still have any queries, feel free to reach out!</p>
+          <div class="faq-arrow d-none d-lg-block" data-aos="fade-up" data-aos-delay="200">
+            <!-- Kept your SVG icon here -->
+            <svg class="faq-arrow" width="200" height="211" viewBox="0 0 200 211" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M198.804 194.488C189.279 189.596 179.529 185.52 169.407 182.07L169.384 182.049C169.227 181.994 169.07 181.939 168.912 181.884C166.669 181.139 165.906 184.546 167.669 185.615C174.053 189.473 182.761 191.837 189.146 195.695C156.603 195.912 119.781 196.591 91.266 179.049C62.5221 161.368 48.1094 130.695 56.934 98.891C84.5539 98.7247 112.556 84.0176 129.508 62.667C136.396 53.9724 146.193 35.1448 129.773 30.2717C114.292 25.6624 93.7109 41.8875 83.1971 51.3147C70.1109 63.039 59.63 78.433 54.2039 95.0087C52.1221 94.9842 50.0776 94.8683 48.0703 94.6608C30.1803 92.8027 11.2197 83.6338 5.44902 65.1074C-1.88449 41.5699 14.4994 19.0183 27.9202 1.56641C28.6411 0.625793 27.2862 -0.561638 26.5419 0.358501C13.4588 16.4098 -0.221091 34.5242 0.896608 56.5659C1.8218 74.6941 14.221 87.9401 30.4121 94.2058C37.7076 97.0203 45.3454 98.5003 53.0334 98.8449C47.8679 117.532 49.2961 137.487 60.7729 155.283C87.7615 197.081 139.616 201.147 184.786 201.155L174.332 206.827C172.119 208.033 174.345 211.287 176.537 210.105C182.06 207.125 187.582 204.122 193.084 201.144C193.346 201.147 195.161 199.887 195.423 199.868C197.08 198.548 193.084 201.144 195.528 199.81C196.688 199.192 197.846 198.552 199.006 197.935C200.397 197.167 200.007 195.087 198.804 194.488ZM60.8213 88.0427C67.6894 72.648 78.8538 59.1566 92.1207 49.0388C98.8475 43.9065 106.334 39.2953 114.188 36.1439C117.295 34.8947 120.798 33.6609 124.168 33.635C134.365 33.5511 136.354 42.9911 132.638 51.031C120.47 77.4222 86.8639 93.9837 58.0983 94.9666C58.8971 92.6666 59.783 90.3603 60.8213 88.0427Z" fill="currentColor"></path>
+              </svg>
+
+          </div>
+        </div>
+  
+        <div class="col-lg-7" data-aos="fade-up" data-aos-delay="300">
+          <div class="faq-container">
+            <!-- Repeatable FAQ Items -->
+            <div class="faq-item">
+              <div class="faq-question">
+                <h3>What types of vessels do you clean?</h3>
+                <i class="faq-toggle bi bi-chevron-down"></i>
+              </div>
+              <div class="faq-answer">
+                <p>We clean bulk carriers, tankers, container ships, and specialized cargo vessels.</p>
+              </div>
+            </div>
+  
+            <div class="faq-item">
+              <div class="faq-question">
+                <h3>Are your methods eco-friendly?</h3>
+                <i class="faq-toggle bi bi-chevron-down"></i>
+              </div>
+              <div class="faq-answer">
+                <p>Yes, we use eco-friendly, sustainable, and internationally compliant cleaning methods.</p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <div class="faq-question">
+                <h3>Do you offer custom cleaning solutions?</h3>
+                <i class="faq-toggle bi bi-chevron-down"></i>
+              </div>
+              <div class="faq-answer">
+                <p>Yes, we create cleaning plans tailored to your vessel's specific needs.</p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <div class="faq-question">
+                <h3>Why is hold cleaning important?</h3>
+                <i class="faq-toggle bi bi-chevron-down"></i>
+              </div>
+              <div class="faq-answer">
+                <p>Hold cleaning prevents contamination, protects cargo safety, and ensures regulatory compliance.</p>
+              </div>
+            </div>
+
+
+            <div class="faq-item">
+              <div class="faq-question">
+                <h3>How long does the cleaning take?</h3>
+                <i class="faq-toggle bi bi-chevron-down"></i>
+              </div>
+              <div class="faq-answer">
+                <p>Cleaning timelines vary depending on the vessel type and specific requirements.</p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <div class="faq-question">
+                <h3>Where are your services available?</h3>
+                <i class="faq-toggle bi bi-chevron-down"></i>
+              </div>
+              <div class="faq-answer">
+                <p>Marine cleaning solutions are provided by us worldwide.</p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <div class="faq-question">
+                <h3>How can I get a quote?</h3>
+                <i class="faq-toggle bi bi-chevron-down"></i>
+              </div>
+              <div class="faq-answer">
+                <p>Contact us for a customized quote tailored to your cleaning needs.</p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <div class="faq-question">
+                <h3>What makes Marine Super Cargo stand out?</h3>
+                <i class="faq-toggle bi bi-chevron-down"></i>
+              </div>
+              <div class="faq-answer">
+                <p>Our expertise, eco-friendly practices, and commitment to quality set us apart in the industry.</p>
+              </div>
+            </div>
+  
+            <!-- Add more FAQ items here -->
+  
+          </div>
+        </div>
+  
+      </div>
+    </div>
+  </section>
+  
+  <!-- /Faq Section -->
+   <style>
+
+.faq {
+  padding: 60px 0;
+}
+
+.faq-title {
+  font-size: 2.25rem;
+  font-weight: 700;
+  color: var(--primary-color);
+  margin-bottom: 20px;
+}
+
+.faq-description {
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+.faq-container {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.faq-item {
+  background: var(--surface-color);
+  border-radius: 12px;
+  padding: 20px 25px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+  transition: all 0.3s ease;
+}
+
+.faq-question {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+}
+
+.faq-question h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 0;
+  color: var(--primary-color);
+}
+
+.faq-toggle {
+  font-size: 20px;
+  transition: transform 0.3s ease;
+}
+
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.4s ease;
+  margin-top: 0;
+}
+
+.faq-item.active .faq-answer {
+  max-height: 200px;
+  opacity: 1;
+  visibility: visible;
+  margin-top: 15px;
+}
+
+.faq-item.active .faq-toggle {
+  transform: rotate(180deg);
+  color: var(--primary-color);
+}
+
+.faq-arrow{
+    color:  var(--primary-color);
+}
+
+/* Responsive */
+@media screen and (max-width: 768px) {
+  .faq-title {
+    font-size: 1.75rem;
+  }
+  .faq-description {
+    font-size: 1rem;
+  }
+}
+
+   </style>
+
+<script>
+    document.querySelectorAll('.faq-question').forEach(question => {
+      question.addEventListener('click', () => {
+        const parent = question.parentElement;
+        parent.classList.toggle('active');
+      });
+    });
+</script>
+  
+  
+
+
+
+
+
+ <!-- ===== FOOTER SECTION ===== -->
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <footer class="site-footer">
+        <div class="footer-top">
+            <div class="footer-column logo-column">
+                <img src="images/logbg.png" alt="Cleanship Logo" class="footer-logo">
+                <p class="slogan">Professional Marine Cleaning Servicess</p>
+                <div class="footer-contact-info">
+                    <p><i class="bi bi-geo-alt"></i> B.C. 1302955, Ajman Free Zone C1 Building, UAE </p>
+                    <p><i class="bi bi-telephone"></i> +91 92365 20609 </p>
+                    <p><i class="bi bi-envelope"></i> ops@marinesupercargo.com </p>
+                </div>
+            </div>
+            <div class="footer-column">
+                <h3 class="footer-title">Quick Links</h3>
+                <a href="index.html">Home</a>
+                <!-- <a href="about.html">About Us</a> -->
+                <a href="service.html">Services</a>
+                <!-- <a href="process.html">Our Process</a> -->
+                <a href="contact.html">Contact</a>
+            </div>
+            <div class="footer-column">
+                <h3 class="footer-title">Support</h3>
+                <a href="index.html#faq">FAQ</a>
+                <!-- <a href="#">Help Center</a> -->
+                <a href="privacy-policy.html">Privacy Policy</a>
+                <!-- <a href="#">Terms of Service</a> -->
+                <a href="index.html#mapss">map</a>
+            </div>
+            <div class="footer-column">
+                <h3 class="footer-title">Services</h3>
+                <a href="Hold-Cleaning-Services.html">Hold Cleaning</a>
+                <a href="Tank-Cleaning-Services.html">Tank Cleaning</a>
+                <a href="Hull-Cleaning-Services.html">Hull Cleaning</a>
+                <a href="contact.html">Veg Oil Squeezy</a>
+                <a href="contact.html">Deck Maintenance</a>
+            </div>
+            
+        </div>
+
+        <hr class="footer-divider" />
+
+        <div class="footer-bottom">
+            <div class="social-icons">
+                <a href="https://www.facebook.com/marinesupercargo/" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://x.com/Marinsupercargo" class="social-icon"><i class="fa-brands fa-x-twitter"></i></a>
+                <a href="https://www.linkedin.com/company/marinsupercargo/" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+                <!-- <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a> -->
+            </div>
+            <p class="copyright">Copyright © 2024 Marine Super Cargo. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <style>
+        :root {
+            --primary-color: #0049a7; /* Example primary color */
+        }
+
+        .site-footer {
+            background-color: #f8f9fa;
+            color: #111;
+            padding: 60px 15px 20px;
+            font-family: Arial, sans-serif;
+            position: relative;
+            border-top: 1px solid rgba(0, 73, 167, 0.1);
+        }
+
+        .footer-top {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 100px;
+            text-align: left;
+            margin-bottom: 40px;
+            max-width: 1200px;
+            margin-left:  auto;
+            margin-right: auto;
+        }
+
+        .footer-column {
+            flex: 1;
+            min-width: 180px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .logo-column {
+            flex: 1.5;
+        }
+
+        .footer-logo {
+            height: 90px;
+            width:  150px;
+            margin-bottom: 20px;
+            transition: transform 0.3s ease;
+        }
+
+        .footer-logo:hover {
+            transform: scale(1.05);
+        }
+
+        .logo-column .slogan {
+            font-size: 16px;
+            color: #666;
+            line-height: 1.6;
+            max-width: 300px;
+            margin-bottom: 20px;
+        }
+
+        .footer-contact-info {
+            margin-top: 15px;
+        }
+
+        .footer-contact-info p {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin: 8px 0;
+            color: #666;
+            font-size: 14px;
+        }
+
+        .footer-contact-info i {
+            color: var(--primary-color);
+            font-size: 16px;
+        }
+
+        .footer-title {
+            font-size: 18px;
+            color: var(--primary-color);
+            margin-bottom: 25px;
+            font-weight: 600;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 3px;
+            background: var(--primary-color);
+            border-radius: 3px;
+        }
+
+        .footer-column a {
+            margin: 8px 0;
+            font-size: 14px;
+            color: #444;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-block;
+            position: relative;
+            padding-left: 0;
+        }
+
+        .footer-column a::before {
+            content: '→';
+            position: absolute;
+            left: -20px;
+            opacity: 0;
+            transition: all 0.3s ease;
+            color: var(--primary-color);
+        }
+
+        .footer-column a:hover {
+            color: var(--primary-color);
+            padding-left: 20px;
+        }
+
+        .footer-column a:hover::before {
+            opacity: 1;
+            left: 0;
+        }
+
+        .footer-divider {
+            border: none;
+            height: 1px;
+            background: linear-gradient(to right, transparent, var(--primary-color), transparent);
+            margin: 40px auto;
+            max-width: 1200px;
+            opacity: 0.1;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+            padding-top: 20px;
+        }
+
+        .social-icons {
+            margin-bottom: 25px;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .social-icon {
+            color: #444;
+            width: 40px;
+            height: 40px;
+            line-height: 40px;
+            text-align: center;
+            border-radius: 50%;
+            background: rgba(0, 73, 167, 0.05);
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .social-icon:hover {
+            color: white;
+            background: var(--primary-color);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 73, 167, 0.2);
+        }
+
+        .footer-bottom p {
+            font-size: 14px;
+            color: #666;
+            margin: 0;
+        }
+
+        /* Responsive Footer Styles */
+        @media screen and (max-width: 992px) {
+            .footer-top {
+                gap: 40px;
+            }
+
+            .footer-column {
+                min-width: 160px;
+            }
+        }
+
+        @media screen and (max-width: 768px) {
+            .site-footer {
+                padding: 60px 15px 20px;
+            }
+
+            .footer-top {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+                padding: 0 20px;
+                gap: 40px;
+            }
+
+            .footer-column {
+                width: 100%;
+                margin-bottom: 20px;
+                align-items: center;
+            }
+
+            .logo-column {
+                align-items: center;
+            }
+
+            .logo-column .slogan {
+                margin: 0 auto;
+            }
+
+            .footer-title {
+                margin-bottom: 20px;
+            }
+
+            .footer-title::after {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+
+            .footer-contact-info {
+                align-items: center;
+            }
+
+            .footer-contact-info p {
+                justify-content: center;
+            }
+
+            .footer-column a {
+                margin: 6px 0;
+            }
+
+            .social-icons {
+                gap: 10px;
+            }
+        }
+
+        @media screen and (max-width: 576px) {
+            .footer-top {
+                gap: 30px;
+            }
+
+            .footer-logo {
+                height: 80px;
+            }
+
+            .social-icon {
+                width: 35px;
+                height: 35px;
+                line-height: 35px;
+                font-size: 16px;
+            }
+
+            .footer-bottom p {
+                font-size: 12px;
+            }
+        }
+    </style>
+
+
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.4/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YUe2LzesAfftltw+PEaao2tjU/QATaW/rOitAq67e0CT0Zi2VVRL0oC4+gAaeBKu"
+        crossorigin="anonymous"></script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+    AOS.init({
+        duration: 1000,
+        once: false,
+        mirror: true
+    });
+</script>
+
+<script>
+// Add smooth scrolling and active state
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const targetId = this.getAttribute('href').substring(1);
+        const target = document.getElementById(targetId);
+        if (target) {
+            // Calculate the offset for the fixed navbar
+            const navbarHeight = document.querySelector('.navbar').offsetHeight;
+            const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - navbarHeight;
+            
+            window.scrollTo({
+                top: targetPosition,
+                behavior: 'smooth'
+            });
+            
+            // Update active state
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.classList.remove('active');
+            });
+            this.classList.add('active');
+        }
+    });
+});
+
+// Update active state on scroll
+window.addEventListener('scroll', function() {
+    const sections = document.querySelectorAll('section[id], div[id]');
+    const navLinks = document.querySelectorAll('.nav-link');
+    const scrollPosition = window.scrollY;
+    
+    sections.forEach(section => {
+        const sectionTop = section.offsetTop - 100;
+        const sectionHeight = section.offsetHeight;
+        
+        if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+            const id = section.getAttribute('id');
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${id}`) {
+                    link.classList.add('active');
+                }
+            });
+        }
+    });
+});
+</script>
+</body>
+</html>
+

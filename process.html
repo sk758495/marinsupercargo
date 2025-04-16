@@ -1,0 +1,783 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- ===== META TAGS ===== -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Marine Super Cargo - Our Process</title>
+    <link rel="icon" href="images/logbg2.png" type="image/x-icon">
+    <link rel="stylesheet" href="css/navbar.css">
+    <!-- ===== EXTERNAL CSS LIBRARIES ===== -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.4/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-DQvkBjpPgn7RC31MCQoOeC9TI2kdqa4+BSgNMNj8v77fdC77Kj5zpWFTJaaAoMbC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- ===== CUSTOM CSS STYLES ===== -->
+    <style>
+        :root {
+            --primary-color: #0049a7;
+        }
+
+        
+        /* Hero Section */
+        .process-hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('images/carousel1.jpg');
+            background-size: cover;
+            background-position: center;
+            height: 700px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            margin-top: 60px;
+            padding: 20px 0;
+            width: 100%;
+        }
+
+        .process-hero {
+            padding-left: 15px;
+            padding-right: 15px;
+            width: 100%;
+            max-width: 100%;
+        }
+
+        .process-hero h1 {
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+
+        .process-hero p {
+            font-size: clamp(1rem, 3vw, 1.2rem);
+            max-width: min(600px, 90%);
+            margin: 0 auto;
+        }
+
+        /* Process Steps Section */
+        .process-steps {
+            padding: 80px 0;
+            background-color: #f8f9fa;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .process-steps::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 2px;
+            height: 100%;
+            background: linear-gradient(to bottom, var(--primary-color), transparent);
+            opacity: 0.1;
+        }
+
+        .process-step {
+            position: relative;
+            padding: 30px;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.03);
+            margin-bottom: 40px;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(0, 73, 167, 0.1);
+            overflow: visible;
+        }
+
+        .process-step:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.05);
+            border-color: rgba(0, 73, 167, 0.2);
+        }
+
+        .step-number {
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 40px;
+            height: 40px;
+            background: var(--primary-color);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.1rem;
+            box-shadow: 0 4px 10px rgba(0, 73, 167, 0.2);
+            z-index: 2;
+        }
+
+        .step-icon {
+            width: 70px;
+            height: 70px;
+            background: rgba(0, 73, 167, 0.05);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 15px auto 20px;
+            color: var(--primary-color);
+            font-size: 28px;
+            transition: all 0.3s ease;
+            position: relative;
+            z-index: 1;
+        }
+
+        .process-step:hover .step-icon {
+            transform: rotate(5deg) scale(1.05);
+            background: rgba(0, 73, 167, 0.1);
+        }
+
+        .step-title {
+            font-size: 1.4rem;
+            color: #333;
+            margin-bottom: 15px;
+            font-weight: 600;
+            text-align: center;
+        }
+
+        .step-description {
+            color: #666;
+            line-height: 1.6;
+            text-align: center;
+            font-size: 0.95rem;
+        }
+
+        /* Timeline Connector */
+        .process-step::after {
+            content: '';
+            position: absolute;
+            bottom: -40px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 2px;
+            height: 40px;
+            background: var(--primary-color);
+            opacity: 0.2;
+        }
+
+        .process-step:last-child::after {
+            display: none;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 1200px) {
+            .process-steps {
+                padding: 70px 0;
+            }
+            
+            .process-step {
+                padding: 25px;
+            }
+            
+            .step-number {
+                width: 35px;
+                height: 35px;
+                font-size: 1rem;
+                top: -12px;
+            }
+            
+            .step-title {
+                font-size: 1.3rem;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .process-steps {
+                padding: 60px 0;
+            }
+            
+            .process-step {
+                padding: 20px;
+                margin-bottom: 35px;
+            }
+            
+            .step-number {
+                width: 32px;
+                height: 32px;
+                font-size: 0.9rem;
+                top: -10px;
+            }
+            
+            .step-title {
+                font-size: 1.2rem;
+            }
+            
+            .step-description {
+                font-size: 0.9rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .process-steps {
+                padding: 50px 0;
+            }
+            
+            .process-steps::before {
+                display: none;
+            }
+            
+            .process-step {
+                padding: 25px;
+                margin-bottom: 30px;
+            }
+            
+            .process-step::after {
+                display: none;
+            }
+            
+            .step-number {
+                width: 30px;
+                height: 30px;
+                font-size: 0.85rem;
+                top: -8px;
+            }
+            
+            .step-icon {
+                margin: 10px auto 15px;
+            }
+            
+            .step-title {
+                font-size: 1.1rem;
+            }
+            
+            .step-description {
+                font-size: 0.85rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .process-steps {
+                padding: 40px 0;
+            }
+            
+            .process-step {
+                padding: 20px;
+                margin-bottom: 25px;
+            }
+            
+            .step-number {
+                width: 28px;
+                height: 28px;
+                font-size: 0.8rem;
+                top: -7px;
+            }
+            
+            .step-icon {
+                margin: 8px auto 12px;
+            }
+            
+            .step-title {
+                font-size: 1rem;
+                margin-bottom: 10px;
+            }
+            
+            .step-description {
+                font-size: 0.8rem;
+                line-height: 1.5;
+            }
+        }
+
+        @media (max-width: 375px) {
+            .process-steps {
+                padding: 30px 0;
+            }
+            
+            .process-step {
+                padding: 15px;
+                margin-bottom: 20px;
+            }
+            
+            .step-number {
+                width: 26px;
+                height: 26px;
+                font-size: 0.75rem;
+                top: -6px;
+            }
+            
+            .step-icon {
+                margin: 6px auto 10px;
+            }
+            
+            .step-title {
+                font-size: 0.95rem;
+            }
+            
+            .step-description {
+                font-size: 0.75rem;
+            }
+        }
+
+        /* Fix for AOS animation overflow */
+        [data-aos] {
+            pointer-events: none;
+        }
+        
+        [data-aos].aos-animate {
+            pointer-events: auto;
+        }
+
+        /* Container adjustments for mobile */
+        @media (max-width: 768px) {
+            .container {
+                padding-left: 15px;
+                padding-right: 15px;
+            }
+            
+            .row {
+                margin-left: -10px;
+                margin-right: -10px;
+            }
+            
+            .col-lg-6 {
+                padding-left: 10px;
+                padding-right: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+     <!-- ===== NAVIGATION BAR ===== -->
+<nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top">
+    <div class="container">
+        <a class="navbar-brand" href="#">
+            <img src="images/logo2.png" alt="Cleanship Logo" class="navbar-logo">
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+                aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav mx-auto">
+                <li class="nav-item">
+                    <a class="nav-link " href="index.html">Home</a>
+                </li>
+                <!-- <li class="nav-item">
+                    <a class="nav-link active" href="about.html">About</a>
+                </li> -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="servicesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Services
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="servicesDropdown">
+                        <li><a class="dropdown-item" href="Hold-Cleaning-Services.html">Hold Cleaning</a></li>
+                        <li><a class="dropdown-item" href="Tank-Cleaning-Services.html">Tank Cleaning</a></li>
+                        <li><a class="dropdown-item" href="Hull-Cleaning-Services.html">Underwater Hull Cleaning</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="contact.html">Contact</a>
+                </li>
+            </ul>
+            <div class="d-flex">
+                <a href="contact.html" class="btn btn-primary get-quote-btn">Get Quote</a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+    <!-- ===== HERO SECTION ===== -->
+    <section class="process-hero" data-aos="fade-down">
+        <div class="container">
+            <h1>Our Hold Cleaning Service Process</h1>
+            <p>We clean cargo holds through four key steps: appraising, planning, execution, and monitoring. These steps ensure thorough cleaning, safety compliance, and readiness for cargo, providing reliable and efficient results for every ship.</p>
+        </div>
+    </section>
+
+    <!-- ===== PROCESS STEPS SECTION ===== -->
+    <section class="process-steps">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6" data-aos="fade-right">
+                    <div class="process-step">
+                        <div class="step-number">01</div>
+                        <div class="step-icon">
+                            <i class="bi bi-search"></i>
+                        </div>
+                        <h3 class="step-title">Appraising</h3>
+                        <p class="step-description">We inspect the cargo hold carefully to determine the cleaning requirements and design the most effective cleaning strategy. Our team conducted a detailed assessment of the hold.</p>
+                    </div>
+                </div>
+                <div class="col-lg-6" data-aos="fade-left">
+                    <div class="process-step">
+                        <div class="step-number">02</div>
+                        <div class="step-icon">
+                            <i class="bi bi-clipboard-check"></i>
+                        </div>
+                        <h3 class="step-title">Planning</h3>
+                        <p class="step-description">We develop a detailed cleaning plan tailored to your ship's unique needs to ensure thorough and efficient results. Our detailed cleaning plan is based on the assessment.</p>
+                    </div>
+                </div>
+                <div class="col-lg-6" data-aos="fade-right">
+                    <div class="process-step">
+                        <div class="step-number">03</div>
+                        <div class="step-icon">
+                            <i class="bi bi-brush"></i>
+                        </div>
+                        <h3 class="step-title">Execution</h3>
+                        <p class="step-description">Our team uses advanced tools and eco-friendly techniques to carry out a complete and safe cleaning process. We use high-pressure washers, and specialized chemical and industrial-grade vacuum.</p>
+                    </div>
+                </div>
+                <div class="col-lg-6" data-aos="fade-left">
+                    <div class="process-step">
+                        <div class="step-number">04</div>
+                        <div class="step-icon">
+                            <i class="bi bi-check-circle"></i>
+                        </div>
+                        <h3 class="step-title">Monitoring</h3>
+                        <p class="step-description">We monitor the cleaning process and conduct final checks to ensure the cargo hold meets the highest cleanliness and safety standards. Quality checks are the key to our business.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FOOTER SECTION ===== -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <footer class="site-footer">
+        <div class="footer-top">
+            <div class="footer-column logo-column">
+                <img src="images/logbg.png" alt="Cleanship Logo" class="footer-logo">
+                <p class="slogan">Professional Marine Cleaning Servicess</p>
+                <div class="footer-contact-info">
+                    <p><i class="bi bi-geo-alt"></i> B.C. 1302955, Ajman Free Zone C1 Building, UAE </p>
+                    <p><i class="bi bi-telephone"></i> +91 92365 20609 </p>
+                    <p><i class="bi bi-envelope"></i> ops@marinesupercargo.com </p>
+                </div>
+            </div>
+            <div class="footer-column">
+                <h3 class="footer-title">Quick Links</h3>
+                <a href="index.html">Home</a>
+                <!-- <a href="about.html">About Us</a> -->
+                <a href="service.html">Services</a>
+                <!-- <a href="process.html">Our Process</a> -->
+                <a href="contact.html">Contact</a>
+            </div>
+            <div class="footer-column">
+                <h3 class="footer-title">Support</h3>
+                <a href="index.html#faq">FAQ</a>
+                <!-- <a href="#">Help Center</a> -->
+                <a href="privacy-policy.html">Privacy Policy</a>
+                <!-- <a href="#">Terms of Service</a> -->
+                <a href="index.html#mapss">map</a>
+            </div>
+            <div class="footer-column">
+                <h3 class="footer-title">Services</h3>
+                <a href="Hold-Cleaning-Services.html">Hold Cleaning</a>
+                <a href="Tank-Cleaning-Services.html">Tank Cleaning</a>
+                <a href="Hull-Cleaning-Services.html">Hull Cleaning</a>
+                <a href="contact.html">Veg Oil Squeezy</a>
+                <a href="contact.html">Deck Maintenance</a>
+            </div>
+            
+        </div>
+
+        <hr class="footer-divider" />
+
+        <div class="footer-bottom">
+            <div class="social-icons">
+                <a href="https://www.facebook.com/marinesupercargo/" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://x.com/Marinsupercargo" class="social-icon"><i class="fa-brands fa-x-twitter"></i></a>
+                <a href="https://www.linkedin.com/company/marinsupercargo/" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+                <!-- <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a> -->
+            </div>
+            <p class="copyright">Copyright © 2024 Marine Super Cargo. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <style>
+        :root {
+            --primary-color: #0049a7; /* Example primary color */
+        }
+
+        .site-footer {
+            background-color: #f8f9fa;
+            color: #111;
+            padding: 60px 15px 20px;
+            font-family: Arial, sans-serif;
+            position: relative;
+            border-top: 1px solid rgba(0, 73, 167, 0.1);
+        }
+
+        .footer-top {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 100px;
+            text-align: left;
+            margin-bottom: 40px;
+            max-width: 1200px;
+            margin-left:  auto;
+            margin-right: auto;
+        }
+
+        .footer-column {
+            flex: 1;
+            min-width: 180px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .logo-column {
+            flex: 1.5;
+        }
+
+        .footer-logo {
+            height: 90px;
+            width:  150px;
+            margin-bottom: 20px;
+            transition: transform 0.3s ease;
+        }
+
+        .footer-logo:hover {
+            transform: scale(1.05);
+        }
+
+        .logo-column .slogan {
+            font-size: 16px;
+            color: #666;
+            line-height: 1.6;
+            max-width: 300px;
+            margin-bottom: 20px;
+        }
+
+        .footer-contact-info {
+            margin-top: 15px;
+        }
+
+        .footer-contact-info p {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin: 8px 0;
+            color: #666;
+            font-size: 14px;
+        }
+
+        .footer-contact-info i {
+            color: var(--primary-color);
+            font-size: 16px;
+        }
+
+        .footer-title {
+            font-size: 18px;
+            color: var(--primary-color);
+            margin-bottom: 25px;
+            font-weight: 600;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 3px;
+            background: var(--primary-color);
+            border-radius: 3px;
+        }
+
+        .footer-column a {
+            margin: 8px 0;
+            font-size: 14px;
+            color: #444;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-block;
+            position: relative;
+            padding-left: 0;
+        }
+
+        .footer-column a::before {
+            content: '→';
+            position: absolute;
+            left: -20px;
+            opacity: 0;
+            transition: all 0.3s ease;
+            color: var(--primary-color);
+        }
+
+        .footer-column a:hover {
+            color: var(--primary-color);
+            padding-left: 20px;
+        }
+
+        .footer-column a:hover::before {
+            opacity: 1;
+            left: 0;
+        }
+
+        .footer-divider {
+            border: none;
+            height: 1px;
+            background: linear-gradient(to right, transparent, var(--primary-color), transparent);
+            margin: 40px auto;
+            max-width: 1200px;
+            opacity: 0.1;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+            padding-top: 20px;
+        }
+
+        .social-icons {
+            margin-bottom: 25px;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .social-icon {
+            color: #444;
+            width: 40px;
+            height: 40px;
+            line-height: 40px;
+            text-align: center;
+            border-radius: 50%;
+            background: rgba(0, 73, 167, 0.05);
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .social-icon:hover {
+            color: white;
+            background: var(--primary-color);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 73, 167, 0.2);
+        }
+
+        .footer-bottom p {
+            font-size: 14px;
+            color: #666;
+            margin: 0;
+        }
+
+        /* Responsive Footer Styles */
+        @media screen and (max-width: 992px) {
+            .footer-top {
+                gap: 40px;
+            }
+
+            .footer-column {
+                min-width: 160px;
+            }
+        }
+
+        @media screen and (max-width: 768px) {
+            .site-footer {
+                padding: 60px 15px 20px;
+            }
+
+            .footer-top {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+                padding: 0 20px;
+                gap: 40px;
+            }
+
+            .footer-column {
+                width: 100%;
+                margin-bottom: 20px;
+                align-items: center;
+            }
+
+            .logo-column {
+                align-items: center;
+            }
+
+            .logo-column .slogan {
+                margin: 0 auto;
+            }
+
+            .footer-title {
+                margin-bottom: 20px;
+            }
+
+            .footer-title::after {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+
+            .footer-contact-info {
+                align-items: center;
+            }
+
+            .footer-contact-info p {
+                justify-content: center;
+            }
+
+            .footer-column a {
+                margin: 6px 0;
+            }
+
+            .social-icons {
+                gap: 10px;
+            }
+        }
+
+        @media screen and (max-width: 576px) {
+            .footer-top {
+                gap: 30px;
+            }
+
+            .footer-logo {
+                height: 80px;
+            }
+
+            .social-icon {
+                width: 35px;
+                height: 35px;
+                line-height: 35px;
+                font-size: 16px;
+            }
+
+            .footer-bottom p {
+                font-size: 12px;
+            }
+        }
+    </style>
+
+    <!-- ===== EXTERNAL JAVASCRIPT LIBRARIES ===== -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.4/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-YUe2LzesAfftltw+PEaao2tjU/QATaW/rOitAq67e0CT0Zi2VVRL0oC4+gAaeBKu"
+            crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    
+    <!-- ===== AOS INITIALIZATION ===== -->
+    <script>
+        AOS.init({
+            duration: 1000,
+            once: false,
+            mirror: true
+        });
+    </script>
+
+    <script>
+        // Add scroll effect to navbar
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+    </script>
+</body>
+</html>

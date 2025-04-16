@@ -1,0 +1,1206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- ===== META TAGS ===== -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Marine Super Cargo - Services</title>
+    <link rel="icon" href="images/logbg2.png" type="image/x-icon">
+    <link rel="stylesheet" href="css/navbar.css">
+    <!-- ===== EXTERNAL CSS LIBRARIES ===== -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.4/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-DQvkBjpPgn7RC31MCQoOeC9TI2kdqa4+BSgNMNj8v77fdC77Kj5zpWFTJaaAoMbC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- ===== CUSTOM CSS STYLES ===== -->
+    <style>
+        :root {
+            --primary-color: #0049a7;
+        }
+
+        /* Navbar Styles */
+        
+    </style>
+</head>
+<body>
+    <!-- ===== NAVIGATION BAR ===== -->
+<nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top">
+    <div class="container">
+        <a class="navbar-brand" href="#">
+            <img src="images/logo2.png" alt="Cleanship Logo" class="navbar-logo">
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+                aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav mx-auto">
+                <li class="nav-item">
+                    <a class="nav-link active" href="index.html">Home</a>
+                </li>
+                <!-- <li class="nav-item">
+                    <a class="nav-link" href="about.html">About</a>
+                </li> -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="servicesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Services
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="servicesDropdown">
+                        <li><a class="dropdown-item" href="Hold-Cleaning-Services.html">Hold Cleaning</a></li>
+                        <li><a class="dropdown-item" href="Tank-Cleaning-Services.html">Tank Cleaning</a></li>
+                        <li><a class="dropdown-item" href="Hull-Cleaning-Services.html">Underwater Hull Cleaning</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="contact.html">Contact</a>
+                </li>
+            </ul>
+            <div class="d-flex">
+                <a href="contact.html" class="btn btn-primary get-quote-btn">Get Quote</a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+    <script>
+        // Add scroll effect to navbar
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+    </script>
+
+    <!-- ===== HERO SECTION ===== -->
+    <section class="contact-hero" data-aos="fade-down">
+        <div class="container">
+            <h1>Our Services</h1>
+            <p>Professional maritime services tailored to meet your vessel's needs. From hold cleaning to comprehensive maintenance, we ensure your ship operates at peak performance.</p>
+        </div>
+    </section>
+
+    <style>
+        .contact-hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('images/44 (5).jpg');
+            background-size: cover;
+            background-position: center;
+            height: 700px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            margin-top: 60px;
+            padding: 20px 0;
+            width: 100%;
+        }
+
+        .contact-hero {
+            padding-left: 15px;
+            padding-right: 15px;
+            width: 100%;
+            max-width: 100%;
+        }
+
+        .contact-hero h1 {
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+
+        .contact-hero p {
+            font-size: clamp(1rem, 3vw, 1.2rem);
+            max-width: min(600px, 90%);
+            margin: 0 auto;
+        }
+
+        /* HOLD CLEANING SERVICE SECTION */
+
+        .hold-cleaning-section {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 60px 0;
+            overflow: hidden;
+        }
+        
+        .hold-cleaning-section .container {
+            padding: 0 15px;
+            max-width: 1140px;
+            margin: 0 auto;
+        }
+        
+        .hold-cleaning-section h2 {
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
+            margin-bottom: 1.5rem;
+        }
+        
+        .hold-cleaning-section .lead {
+            font-size: clamp(1rem, 2vw, 1.25rem);
+            margin-bottom: 2rem;
+        }
+        
+        .service-features {
+            margin-top: 1.5rem;
+        }
+        
+        .feature-item {
+            background: white;
+            padding: 1.25rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease;
+            margin-bottom: 1rem;
+        }
+        
+        .feature-item:hover {
+            transform: translateY(-5px);
+        }
+        
+        .service-image-container {
+            position: relative;
+            overflow: hidden;
+            border-radius: 12px;
+            margin-top: 2rem;
+            width: 100%;
+        }
+        
+        .service-image-container img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+            max-width: 100%;
+        }
+        
+        .image-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, rgba(0, 73, 167, 0.2), rgba(0, 73, 167, 0.05));
+            border-radius: 12px;
+        }
+        
+        .feature-icon {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(0, 73, 167, 0.1);
+            border-radius: 50%;
+            color: var(--primary-color);
+        }
+        
+        .feature-item h5 {
+            font-size: clamp(1rem, 1.5vw, 1.25rem);
+            margin-bottom: 0.5rem;
+        }
+        
+        .feature-item p {
+            font-size: clamp(0.875rem, 1.2vw, 1rem);
+            margin-bottom: 0;
+        }
+        
+        .btn-primary {
+            font-size: clamp(0.875rem, 1.2vw, 1rem);
+            padding: 0.75rem 1.5rem;
+            background-color: var(--primary-color);
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 991.98px) {
+            .hold-cleaning-section {
+                padding: 40px 0;
+            }
+            
+            .hold-cleaning-section .row {
+                flex-direction: column-reverse;
+            }
+            
+            .service-image-container {
+                margin-bottom: 2rem;
+                max-width: 100%;
+            }
+
+            .hold-cleaning-section .container {
+                padding: 0 15px;
+                width: 100%;
+            }
+        }
+        
+        @media (max-width: 767.98px) {
+            .hold-cleaning-section {
+                padding: 30px 0;
+            }
+            
+            .feature-item {
+                padding: 1rem;
+            }
+            
+            .feature-icon {
+                width: 35px;
+                height: 35px;
+            }
+
+            .hold-cleaning-section .container {
+                padding: 0 15px;
+                width: 100%;
+            }
+        }
+        
+        @media (max-width: 575.98px) {
+            .hold-cleaning-section {
+                padding: 20px 0;
+            }
+            
+            .feature-item {
+                padding: 0.875rem;
+            }
+            
+            .btn-primary {
+                width: 100%;
+            }
+
+            .hold-cleaning-section .container {
+                padding: 0 15px;
+                width: 100%;
+            }
+        }
+    </style>
+
+    <!-- ===== EXTERNAL JAVASCRIPT LIBRARIES ===== -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.4/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-YUe2LzesAfftltw+PEaao2tjU/QATaW/rOitAq67e0CT0Zi2VVRL0oC4+gAaeBKu"
+            crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    
+    <!-- ===== AOS INITIALIZATION ===== -->
+    <script>
+        AOS.init({
+            duration: 1000,
+            once: false,
+            mirror: true
+        });
+    </script>
+
+
+<!-- ===== HOLD CLEANING SERVICE SECTION ===== -->
+<section class="hold-cleaning-section py-5">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6" data-aos="fade-right">
+                <h2 class="display-4 fw-bold mb-4">Hold Cleaning Services</h2>
+                <p class="lead mb-4">Professional and thorough hold cleaning solutions for all types of vessels, ensuring optimal cargo space and compliance with industry standards.</p>
+                
+                <div class="service-features">
+                    <div class="feature-item mb-4" data-aos="fade-up" data-aos-delay="100">
+                        <div class="d-flex align-items-center">
+                            <div class="feature-icon me-3">
+                                <i class="bi bi-check-circle-fill text-primary fs-4"></i>
+                            </div>
+                            <div>
+                                <h5 class="mb-1">Comprehensive Cleaning</h5>
+                                <p class="mb-0 text-muted">Thorough cleaning of all hold surfaces and compartments</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="feature-item mb-4" data-aos="fade-up" data-aos-delay="200">
+                        <div class="d-flex align-items-center">
+                            <div class="feature-icon me-3">
+                                <i class="bi bi-shield-check text-primary fs-4"></i>
+                            </div>
+                            <div>
+                                <h5 class="mb-1">Quality Assurance</h5>
+                                <p class="mb-0 text-muted">Strict adherence to international cleaning standards</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="feature-item mb-4" data-aos="fade-up" data-aos-delay="300">
+                        <div class="d-flex align-items-center">
+                            <div class="feature-icon me-3">
+                                <i class="bi bi-clock-history text-primary fs-4"></i>
+                            </div>
+                            <div>
+                                <h5 class="mb-1">Efficient Service</h5>
+                                <p class="mb-0 text-muted">Quick turnaround times to minimize vessel downtime</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="mt-4" data-aos="fade-up" data-aos-delay="400">
+                    <a href="contact.html" class="btn btn-primary btn-lg">Request Service</a>
+                </div>
+            </div>
+            
+            <div class="col-lg-6" data-aos="fade-left">
+                <div class="service-image-container position-relative">
+                    <img src="images/card3.jpeg" alt="Hold Cleaning Service" class="img-fluid rounded-4 shadow-lg">
+                    <div class="image-overlay"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section> 
+
+    <!-- ===== SERVICES SECTION ===== -->
+    <section class="services-section py-5">
+        <div class="container">
+            <div class="section-header text-center mb-5" data-aos="fade-up">
+                <span class="subtitle">Our Expertise</span>
+                <h2 class="section-title">Marine Cleaning Services</h2>
+                <div class="section-line"></div>
+                <p class="section-description">Specialized maritime cleaning solutions for optimal vessel performance</p>
+            </div>
+            <div class="row g-4 justify-content-center">
+                <!-- Hold Cleaning -->
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+                    <div class="service-card">
+                        <div class="service-image">
+                            <img src="images/card1.jpg" alt="Hold Cleaning" class="img-fluid">
+                            <div class="service-overlay">
+                                <div class="overlay-content">
+                                    <h3>Hold Cleaning</h3>
+                                    <p>Professional cargo hold cleaning solutions</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="service-content">
+                            <div class="service-icon">
+                                <i class="bi bi-building"></i>
+                            </div>
+                            <h3>Hold Cleaning</h3>
+                            <ul class="service-list">
+                                <li><i class="bi bi-check-circle"></i> Dry Bulk Hold Cleaning</li>
+                                <li><i class="bi bi-check-circle"></i> Liquid Cargo Hold Cleaning</li>
+                                <li><i class="bi bi-check-circle"></i> Food Grade Hold Cleaning</li>
+                            </ul>
+                            <a href="contact.html" class="service-btn">Request Service</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tank Cleaning -->
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+                    <div class="service-card">
+                        <div class="service-image">
+                            <img src="images/chemical-tank-cleaning-sml.jpg" alt="Tank Cleaning" class="img-fluid">
+                            <div class="service-overlay">
+                                <div class="overlay-content">
+                                    <h3>Tank Cleaning</h3>
+                                    <p>Professional tank maintenance solutions</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="service-content">
+                            <div class="service-icon">
+                                <i class="bi bi-droplet"></i>
+                            </div>
+                            <h3>Tank Cleaning</h3>
+                            <ul class="service-list">
+                                <li><i class="bi bi-check-circle"></i> Chemical Tank Cleaning</li>
+                                <li><i class="bi bi-check-circle"></i> Oil Tank Cleaning</li>
+                                <li><i class="bi bi-check-circle"></i> Water Tank Cleaning</li>
+                            </ul>
+                            <a href="contact.html" class="service-btn">Request Service</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Underwater Hull Cleaning -->
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+                    <div class="service-card">
+                        <div class="service-image">
+                            <img src="images/underwater.jpeg" alt="Hull Cleaning" class="img-fluid">
+                            <div class="service-overlay">
+                                <div class="overlay-content">
+                                    <h3>Underwater Hull Cleaning</h3>
+                                    <p>Specialized underwater solutions</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="service-content">
+                            <div class="service-icon">
+                                <i class="bi bi-water"></i>
+                            </div>
+                            <h3>Underwater Hull Cleaning</h3>
+                            <ul class="service-list">
+                                <li><i class="bi bi-check-circle"></i> Biofouling Removal</li>
+                                <li><i class="bi bi-check-circle"></i> Fuel Efficiency</li>
+                                <li><i class="bi bi-check-circle"></i> Environmental Care</li>
+                            </ul>
+                            <a href="contact.html" class="service-btn">Request Service</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <style>
+        .services-section {
+            background-color: #f8f9fa;
+            padding: 80px 0;
+        }
+
+        .section-header {
+            margin-bottom: 60px;
+        }
+
+        .section-header .subtitle {
+            color: var(--primary-color);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .section-header .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .section-line {
+            width: 80px;
+            height: 3px;
+            background: var(--primary-color);
+            margin: 0 auto 20px;
+        }
+
+        .section-description {
+            color: #6c757d;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .service-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            height: 100%;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+        }
+
+        .service-image {
+            position: relative;
+            height: 250px;
+            overflow: hidden;
+        }
+
+        .service-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .service-card:hover .service-image img {
+            transform: scale(1.1);
+        }
+
+        .service-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(to bottom, rgba(0,73,167,0.8), rgba(0,73,167,0.4));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .service-card:hover .service-overlay {
+            opacity: 1;
+        }
+
+        .overlay-content {
+            color: white;
+        }
+
+        .overlay-content h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+
+        .service-content {
+            padding: 30px;
+            position: relative;
+        }
+
+        .service-icon {
+            width: 70px;
+            height: 70px;
+            background: var(--primary-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: -55px auto 20px;
+            border: 6px solid white;
+            color: white;
+            font-size: 1.8rem;
+            box-shadow: 0 5px 15px rgba(0, 73, 167, 0.2);
+        }
+
+        .service-content h3 {
+            font-size: 1.4rem;
+            color: #333;
+            margin-bottom: 20px;
+            text-align: center;
+            font-weight: 600;
+        }
+
+        .service-list {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 25px;
+        }
+
+        .service-list li {
+            display: flex;
+            align-items: center;
+            margin-bottom: 12px;
+            color: #666;
+            font-size: 1.05rem;
+        }
+
+        .service-list li i {
+            color: var(--primary-color);
+            margin-right: 12px;
+            font-size: 1.2rem;
+        }
+
+        .service-btn {
+            display: inline-block;
+            width: 100%;
+            padding: 14px 25px;
+            background: var(--primary-color);
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            text-align: center;
+            transition: all 0.3s ease;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .service-btn:hover {
+            background: #003d8f;
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        @media (max-width: 991px) {
+            .service-card {
+                margin-bottom: 30px;
+            }
+            
+            .service-image {
+                height: 220px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .section-header .section-title {
+                font-size: 2rem;
+            }
+            
+            .service-content {
+                padding: 25px;
+            }
+            
+            .service-icon {
+                width: 60px;
+                height: 60px;
+                font-size: 1.5rem;
+                margin: -45px auto 15px;
+            }
+        }
+    </style>
+
+    <!-- ===== WHY TRUST CLEANSHIP SECTION ===== -->
+    <section class="trust-section py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-5" data-aos="fade-right">
+                    <div class="trust-content">
+                        <span class="trust-subtitle">Why Choose Us</span>
+                        <h2 class="trust-title">Why Trust Marine Super Cargo for Your Hold Cleaning Needs?</h2>
+                        <div class="trust-line"></div>
+                        <p class="trust-description">With increasingly complicated safety problems, the maintenance of a ship's hold is important. Marine Super Cargo has been the trustable partner for many shipping companies to ensure high-class and professional hold cleaning at ports worldwide.</p>
+                        <p class="trust-subtext">Our team of Marine Super Cargo has years of experience, and we guarantee safety and pay attention to details.</p>
+                    </div>
+                </div>
+
+                <div class="col-lg-7">
+                    <div class="trust-cards">
+                        <!-- Experience Card -->
+                        <div class="trust-card" data-aos="zoom-in" data-aos-delay="100">
+                            <div class="trust-card-icon">
+                                <i class="bi bi-people-fill"></i>
+                            </div>
+                            <div class="trust-card-content">
+                                <h3>Experienced Professionals</h3>
+                                <p>We have a great team of experienced people who know their work of Marine Super Cargo holds.</p>
+                            </div>
+                            <div class="trust-card-number">01</div>
+                        </div>
+
+                        <!-- Equipment Card -->
+                        <div class="trust-card" data-aos="zoom-in" data-aos-delay="200">
+                            <div class="trust-card-icon">
+                                <i class="bi bi-tools"></i>
+                            </div>
+                            <div class="trust-card-content">
+                                <h3>Advanced Equipment</h3>
+                                <p>We use the latest technology equipment for deep cleaning.</p>
+                            </div>
+                            <div class="trust-card-number">02</div>
+                        </div>
+
+                        <!-- Safety Card -->
+                        <div class="trust-card" data-aos="zoom-in" data-aos-delay="300">
+                            <div class="trust-card-icon">
+                                <i class="bi bi-shield-check"></i>
+                            </div>
+                            <div class="trust-card-content">
+                                <h3>Safety First</h3>
+                                <p>We take care of the safety in everything we are doing and in the process of using some dangerous chemicals.</p>
+                            </div>
+                            <div class="trust-card-number">03</div>
+                        </div>
+
+                        <!-- Eco-Friendly Card -->
+                        <div class="trust-card" data-aos="zoom-in" data-aos-delay="400">
+                            <div class="trust-card-icon">
+                                <i class="bi bi-flower3"></i>
+                            </div>
+                            <div class="trust-card-content">
+                                <h3>Eco-Friendly</h3>
+                                <p>We use all the environmentally friendly solutions to clean the ship hold.</p>
+                            </div>
+                            <div class="trust-card-number">04</div>
+                        </div>
+
+                        <!-- 24/7 Availability Card -->
+                        <div class="trust-card" data-aos="zoom-in" data-aos-delay="500">
+                            <div class="trust-card-icon">
+                                <i class="bi bi-clock-history"></i>
+                            </div>
+                            <div class="trust-card-content">
+                                <h3>24/7 Availability</h3>
+                                <p>We are available anytime to provide cleaning services whenever you need them.</p>
+                            </div>
+                            <div class="trust-card-number">05</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <style>
+        .trust-section {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .trust-content {
+            padding-right: 3rem;
+        }
+
+        .trust-subtitle {
+            color: var(--primary-color);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .trust-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #333;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+
+        .trust-line {
+            width: 80px;
+            height: 3px;
+            background: var(--primary-color);
+            margin-bottom: 1.5rem;
+        }
+
+        .trust-description {
+            font-size: 1.1rem;
+            color: #666;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .trust-subtext {
+            font-size: 1rem;
+            color: #666;
+            font-style: italic;
+        }
+
+        .trust-cards {
+            display: grid;
+            gap: 1.5rem;
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        .trust-card {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+
+        .trust-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+        }
+
+        .trust-card:last-child {
+            grid-column: 1 / -1;
+        }
+
+        .trust-card-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--primary-color);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            color: white;
+            font-size: 1.8rem;
+            transition: all 0.3s ease;
+        }
+
+        .trust-card:hover .trust-card-icon {
+            transform: rotateY(180deg);
+        }
+
+        .trust-card-content h3 {
+            font-size: 1.3rem;
+            color: #333;
+            margin-bottom: 0.8rem;
+            font-weight: 600;
+        }
+
+        .trust-card-content p {
+            color: #666;
+            margin: 0;
+            line-height: 1.6;
+        }
+
+        .trust-card-number {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 3rem;
+            font-weight: 700;
+            color: rgba(0, 73, 167, 0.05);
+            transition: all 0.3s ease;
+        }
+
+        .trust-card:hover .trust-card-number {
+            transform: scale(1.2);
+            color: rgba(0, 73, 167, 0.08);
+        }
+
+        @media (max-width: 991px) {
+            .trust-content {
+                padding-right: 0;
+                margin-bottom: 3rem;
+                text-align: center;
+            }
+
+            .trust-line {
+                margin: 0 auto 1.5rem;
+            }
+
+            .trust-cards {
+                grid-template-columns: 1fr;
+            }
+
+            .trust-card:last-child {
+                grid-column: auto;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .trust-title {
+                font-size: 2rem;
+            }
+
+            .trust-description {
+                font-size: 1rem;
+            }
+
+            .trust-card {
+                padding: 1.5rem;
+            }
+
+            .trust-card-icon {
+                width: 50px;
+                height: 50px;
+                font-size: 1.5rem;
+            }
+
+            .trust-card-number {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+
+    <!-- ===== FOOTER SECTION ===== -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <footer class="site-footer">
+        <div class="footer-top">
+            <div class="footer-column logo-column">
+                <img src="images/logbg.png" alt="Cleanship Logo" class="footer-logo">
+                <p class="slogan">Professional Marine Cleaning Servicess</p>
+                <div class="footer-contact-info">
+                    <p><i class="bi bi-geo-alt"></i> B.C. 1302955, Ajman Free Zone C1 Building, UAE </p>
+                    <p><i class="bi bi-telephone"></i> +91 92365 20609 </p>
+                    <p><i class="bi bi-envelope"></i> ops@marinesupercargo.com </p>
+                </div>
+            </div>
+            <div class="footer-column">
+                <h3 class="footer-title">Quick Links</h3>
+                <a href="index.html">Home</a>
+                <!-- <a href="about.html">About Us</a> -->
+                <a href="service.html">Services</a>
+                <!-- <a href="process.html">Our Process</a> -->
+                <a href="contact.html">Contact</a>
+            </div>
+            <div class="footer-column">
+                <h3 class="footer-title">Support</h3>
+                <a href="index.html#faq">FAQ</a>
+                <!-- <a href="#">Help Center</a> -->
+                <a href="privacy-policy.html">Privacy Policy</a>
+                <!-- <a href="#">Terms of Service</a> -->
+                <a href="index.html#mapss">map</a>
+            </div>
+            <div class="footer-column">
+                <h3 class="footer-title">Services</h3>
+                <a href="Hold-Cleaning-Services.html">Hold Cleaning</a>
+                <a href="Tank-Cleaning-Services.html">Tank Cleaning</a>
+                <a href="Hull-Cleaning-Services.html">Hull Cleaning</a>
+                <a href="contact.html">Veg Oil Squeezy</a>
+                <a href="contact.html">Deck Maintenance</a>
+            </div>
+            
+        </div>
+
+        <hr class="footer-divider" />
+
+        <div class="footer-bottom">
+            <div class="social-icons">
+                <a href="https://www.facebook.com/marinesupercargo/" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://x.com/Marinsupercargo" class="social-icon"><i class="fa-brands fa-x-twitter"></i></a>
+                <a href="https://www.linkedin.com/company/marinsupercargo/" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+                <!-- <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a> -->
+            </div>
+            <p class="copyright">Copyright © 2024 Marine Super Cargo. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <style>
+        :root {
+            --primary-color: #0049a7; /* Example primary color */
+        }
+
+        .site-footer {
+            background-color: #f8f9fa;
+            color: #111;
+            padding: 60px 15px 20px;
+            font-family: Arial, sans-serif;
+            position: relative;
+            border-top: 1px solid rgba(0, 73, 167, 0.1);
+        }
+
+        .footer-top {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 100px;
+            text-align: left;
+            margin-bottom: 40px;
+            max-width: 1200px;
+            margin-left:  auto;
+            margin-right: auto;
+        }
+
+        .footer-column {
+            flex: 1;
+            min-width: 180px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .logo-column {
+            flex: 1.5;
+        }
+
+        .footer-logo {
+            height: 90px;
+            width:  150px;
+            margin-bottom: 20px;
+            transition: transform 0.3s ease;
+        }
+
+        .footer-logo:hover {
+            transform: scale(1.05);
+        }
+
+        .logo-column .slogan {
+            font-size: 16px;
+            color: #666;
+            line-height: 1.6;
+            max-width: 300px;
+            margin-bottom: 20px;
+        }
+
+        .footer-contact-info {
+            margin-top: 15px;
+        }
+
+        .footer-contact-info p {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin: 8px 0;
+            color: #666;
+            font-size: 14px;
+        }
+
+        .footer-contact-info i {
+            color: var(--primary-color);
+            font-size: 16px;
+        }
+
+        .footer-title {
+            font-size: 18px;
+            color: var(--primary-color);
+            margin-bottom: 25px;
+            font-weight: 600;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 3px;
+            background: var(--primary-color);
+            border-radius: 3px;
+        }
+
+        .footer-column a {
+            margin: 8px 0;
+            font-size: 14px;
+            color: #444;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-block;
+            position: relative;
+            padding-left: 0;
+        }
+
+        .footer-column a::before {
+            content: '→';
+            position: absolute;
+            left: -20px;
+            opacity: 0;
+            transition: all 0.3s ease;
+            color: var(--primary-color);
+        }
+
+        .footer-column a:hover {
+            color: var(--primary-color);
+            padding-left: 20px;
+        }
+
+        .footer-column a:hover::before {
+            opacity: 1;
+            left: 0;
+        }
+
+        .footer-divider {
+            border: none;
+            height: 1px;
+            background: linear-gradient(to right, transparent, var(--primary-color), transparent);
+            margin: 40px auto;
+            max-width: 1200px;
+            opacity: 0.1;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+            padding-top: 20px;
+        }
+
+        .social-icons {
+            margin-bottom: 25px;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .social-icon {
+            color: #444;
+            width: 40px;
+            height: 40px;
+            line-height: 40px;
+            text-align: center;
+            border-radius: 50%;
+            background: rgba(0, 73, 167, 0.05);
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .social-icon:hover {
+            color: white;
+            background: var(--primary-color);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 73, 167, 0.2);
+        }
+
+        .footer-bottom p {
+            font-size: 14px;
+            color: #666;
+            margin: 0;
+        }
+
+        /* Responsive Footer Styles */
+        @media screen and (max-width: 992px) {
+            .footer-top {
+                gap: 40px;
+            }
+
+            .footer-column {
+                min-width: 160px;
+            }
+        }
+
+        @media screen and (max-width: 768px) {
+            .site-footer {
+                padding: 60px 15px 20px;
+            }
+
+            .footer-top {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+                padding: 0 20px;
+                gap: 40px;
+            }
+
+            .footer-column {
+                width: 100%;
+                margin-bottom: 20px;
+                align-items: center;
+            }
+
+            .logo-column {
+                align-items: center;
+            }
+
+            .logo-column .slogan {
+                margin: 0 auto;
+            }
+
+            .footer-title {
+                margin-bottom: 20px;
+            }
+
+            .footer-title::after {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+
+            .footer-contact-info {
+                align-items: center;
+            }
+
+            .footer-contact-info p {
+                justify-content: center;
+            }
+
+            .footer-column a {
+                margin: 6px 0;
+            }
+
+            .social-icons {
+                gap: 10px;
+            }
+        }
+
+        @media screen and (max-width: 576px) {
+            .footer-top {
+                gap: 30px;
+            }
+
+            .footer-logo {
+                height: 80px;
+            }
+
+            .social-icon {
+                width: 35px;
+                height: 35px;
+                line-height: 35px;
+                font-size: 16px;
+            }
+
+            .footer-bottom p {
+                font-size: 12px;
+            }
+        }
+    </style>
+
+</body>
+</html>

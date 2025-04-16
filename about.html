@@ -1,0 +1,1785 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- ===== META TAGS ===== -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Marine Super Cargo - About Us</title>
+    <link rel="icon" href="images/logbg2.png" type="image/x-icon">
+    <link rel="stylesheet" href="css/navbar.css">
+    
+    <!-- ===== EXTERNAL CSS LIBRARIES ===== -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.4/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-DQvkBjpPgn7RC31MCQoOeC9TI2kdqa4+BSgNMNj8v77fdC77Kj5zpWFTJaaAoMbC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- ===== CUSTOM CSS STYLES ===== -->
+    <style>
+        /* ===== ROOT VARIABLES ===== */
+        :root {
+            --primary-color: #0049a7;
+            --secondary-color: #003d8f;
+            --text-color: #333;
+            --light-bg: #f8f9fa;
+        }
+
+        body {
+            color: var(--text-color);
+            overflow-x: hidden;
+        }
+
+        /* ===== NAVBAR LOGO STYLES ===== */
+        
+        /* ===== HERO SECTION ===== */
+        .about-hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('images/44 (4).jpg');
+            background-size: cover;
+            background-position: center;
+            height: 700px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            margin-top: 60px;
+            padding: 20px 0;
+        }
+
+        .about-hero h1 {
+            font-size: 3.5rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+
+        .about-hero p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* ===== ABOUT CONTENT SECTION ===== */
+        .about-content {
+            padding: 60px 0;
+            background-color: var(--light-bg);
+            position: relative;
+            width: 100%;
+            overflow-x: hidden;
+        }
+
+        .about-text h2 {
+            color: var(--primary-color);
+            margin-bottom: 2rem;
+            font-size: 2.5rem;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        .about-text h2:after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 50px;
+            height: 3px;
+            background-color: var(--primary-color);
+        }
+
+        .timeline {
+            position: relative;
+            padding-left: 30px;
+            margin-bottom: 40px;
+            width: 100%;
+        }
+
+        .timeline:before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background-color: var(--primary-color);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 30px;
+            padding-left: 30px;
+            width: 100%;
+        }
+
+        .timeline-icon {
+            position: absolute;
+            left: -15px;
+            top: 0;
+            width: 30px;
+            height: 30px;
+            background-color: var(--primary-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+        }
+
+        .timeline-content h4 {
+            color: var(--primary-color);
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+        }
+
+        .timeline-content p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        .about-stats {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin-top: 40px;
+            padding: 20px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            gap: 20px;
+            width: 100%;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 0 15px;
+            flex: 1;
+            min-width: 120px;
+        }
+
+        .stat-item h3 {
+            color: var(--primary-color);
+            font-size: 2rem;
+            margin-bottom: 5px;
+        }
+
+        .stat-item p {
+            color: #666;
+            font-size: 0.9rem;
+            margin: 0;
+        }
+
+        .about-image-container {
+            position: relative;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            margin-top: 30px;
+            width: 100%;
+        }
+
+        .about-image img {
+            width: 100%;
+            height: auto;
+            transition: transform 0.5s ease;
+        }
+
+        .image-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 73, 167, 0.7);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        /* .about-image-container:hover .image-overlay {
+            opacity: 1;
+        } */
+
+        .about-image-container:hover .about-image img {
+            transform: scale(1.1);
+        }
+
+        .overlay-content {
+            text-align: center;
+            color: white;
+        }
+
+        .overlay-content i {
+            font-size: 3rem;
+            margin-bottom: 10px;
+            cursor: pointer;
+        }
+
+        .overlay-content p {
+            margin: 0;
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+
+        /* Responsive Styles for About Content */
+        @media (max-width: 991.98px) {
+            .about-content {
+                padding: 40px 15px;
+            }
+
+            .about-text h2 {
+                font-size: 2rem;
+            }
+
+            .timeline-content h4 {
+                font-size: 1.1rem;
+            }
+
+            .stat-item h3 {
+                font-size: 1.8rem;
+            }
+
+            .about-stats {
+                padding: 15px;
+            }
+        }
+
+        @media (max-width: 767.98px) {
+            .about-content {
+                padding: 30px 10px;
+            }
+
+            .about-text h2 {
+                font-size: 1.8rem;
+            }
+
+            .timeline {
+                padding-left: 20px;
+            }
+
+            .timeline-item {
+                padding-left: 20px;
+            }
+
+            .timeline-icon {
+                width: 25px;
+                height: 25px;
+                left: -12px;
+            }
+
+            .about-stats {
+                flex-direction: column;
+                gap: 15px;
+                padding: 15px 10px;
+            }
+
+            .stat-item {
+                width: 100%;
+                padding: 10px 0;
+            }
+
+            .about-image-container {
+                margin-top: 20px;
+            }
+        }
+
+        @media (max-width: 575.98px) {
+            .about-content {
+                padding: 20px 10px;
+            }
+
+            .about-text h2 {
+                font-size: 1.5rem;
+            }
+
+            .timeline-content h4 {
+                font-size: 1rem;
+            }
+
+            .timeline-content p {
+                font-size: 0.9rem;
+            }
+
+            .stat-item h3 {
+                font-size: 1.5rem;
+            }
+
+            .overlay-content i {
+                font-size: 2.5rem;
+            }
+
+            .overlay-content p {
+                font-size: 1rem;
+            }
+
+            .about-stats {
+                padding: 10px;
+            }
+        }
+
+        /* ===== MISSION & VISION SECTION ===== */
+        .mission-vision {
+            padding: 30px 0;
+            background-color: var(--light-bg);
+            position: relative;
+        }
+
+        .section-subtitle {
+            color: #666;
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .mission-card, .vision-card {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            height: 100%;
+            transition: transform 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .mission-card:hover, .vision-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .card-icon {
+            width: 80px;
+            height: 80px;
+            background: var(--primary-color);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            margin-bottom: 25px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .card-content h3 {
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        .card-content h3:after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 40px;
+            height: 3px;
+            background-color: var(--primary-color);
+        }
+
+        .card-content p {
+            color: #666;
+            line-height: 1.8;
+            margin-bottom: 25px;
+        }
+
+        .mission-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .mission-list li {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            color: #666;
+        }
+
+        .mission-list li i {
+            color: var(--primary-color);
+            margin-right: 10px;
+            font-size: 1.2rem;
+        }
+
+        .vision-goals {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .goal-item {
+            display: flex;
+            align-items: center;
+            background: rgba(0, 73, 167, 0.05);
+            padding: 15px;
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+        }
+
+        .goal-item:hover {
+            transform: translateX(10px);
+        }
+
+        .goal-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--primary-color);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            margin-right: 15px;
+            flex-shrink: 0;
+        }
+
+        .goal-text h4 {
+            color: var(--primary-color);
+            margin-bottom: 5px;
+            font-size: 1.1rem;
+        }
+
+        .goal-text p {
+            color: #666;
+            margin: 0;
+            font-size: 0.9rem;
+        }
+
+        /* ===== TEAM SECTION ===== */
+        .team-section {
+            padding: 80px 0;
+            background-color: white;
+        }
+
+        .team-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+            transition: transform 0.3s ease;
+            height: 100%;
+        }
+
+        .team-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .team-image {
+            position: relative;
+            overflow: hidden;
+            height: 300px;
+        }
+
+        .team-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .team-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 73, 167, 0.8);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .team-card:hover .team-overlay {
+            opacity: 1;
+        }
+
+        .team-card:hover .team-image img {
+            transform: scale(1.1);
+        }
+
+        .team-social {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--primary-color);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+        }
+
+        .social-icon:hover {
+            background: white;
+            color: var(--primary-color);
+            transform: translateY(-5px);
+        }
+
+        .team-info {
+            padding: 25px;
+            text-align: center;
+        }
+
+        .team-info h4 {
+            color: var(--primary-color);
+            margin-bottom: 5px;
+            font-size: 1.4rem;
+        }
+
+        .position {
+            color: #666;
+            font-size: 1rem;
+            margin-bottom: 15px;
+            font-weight: 500;
+        }
+
+        .bio {
+            color: #666;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .team-skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            justify-content: center;
+        }
+
+        .skill-tag {
+            background: rgba(0, 73, 167, 0.1);
+            color: var(--primary-color);
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 991.98px) {
+            .team-section {
+                padding: 60px 0;
+            }
+
+            .team-image {
+                height: 250px;
+            }
+        }
+
+        @media (max-width: 767.98px) {
+            .team-section {
+                padding: 40px 0;
+            }
+
+            .team-image {
+                height: 200px;
+            }
+
+            .team-info {
+                padding: 20px;
+            }
+
+            .team-info h4 {
+                font-size: 1.2rem;
+            }
+
+            .bio {
+                font-size: 0.9rem;
+            }
+        }
+
+        /* ===== VALUES SECTION STYLES ===== */
+        .values-section {
+            padding: 80px 0;
+            background-color: white;
+        }
+
+        .value-card {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            height: 100%;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .value-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        .value-icon {
+            width: 70px;
+            height: 70px;
+            background: var(--primary-color);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            margin: 0 auto 20px;
+            transition: all 0.3s ease;
+        }
+
+        .value-card:hover .value-icon {
+            transform: scale(1.1);
+            background: white;
+            color: var(--primary-color);
+            box-shadow: 0 0 0 3px var(--primary-color);
+        }
+
+        .value-content {
+            text-align: center;
+        }
+
+        .value-content h4 {
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            font-size: 1.4rem;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .value-content h4:after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            bottom: 0;
+            transform: translateX(-50%);
+            width: 40px;
+            height: 2px;
+            background-color: var(--primary-color);
+        }
+
+        .value-content p {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .value-features {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 8px 15px;
+            background: rgba(0, 73, 167, 0.05);
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .feature-item:hover {
+            background: rgba(0, 73, 167, 0.1);
+            transform: translateX(5px);
+        }
+
+        .feature-item i {
+            color: var(--primary-color);
+            font-size: 0.9rem;
+        }
+
+        .feature-item span {
+            color: #666;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 991.98px) {
+            .values-section {
+                padding: 60px 0;
+            }
+
+            .value-card {
+                padding: 25px;
+            }
+
+            .value-icon {
+                width: 60px;
+                height: 60px;
+                font-size: 1.5rem;
+            }
+        }
+
+        @media (max-width: 767.98px) {
+            .values-section {
+                padding: 40px 0;
+            }
+
+            .value-content h4 {
+                font-size: 1.2rem;
+            }
+
+            .value-content p {
+                font-size: 0.9rem;
+            }
+
+            .feature-item {
+                padding: 6px 12px;
+            }
+        }
+
+        /* ===== TESTIMONIALS SECTION STYLES ===== */
+        .testimonials-section {
+            padding: 80px 0;
+            background-color: var(--light-bg);
+        }
+
+        .testimonial-card {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            height: 100%;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        .testimonial-content {
+            position: relative;
+            margin-bottom: 25px;
+        }
+
+        .quote-icon {
+            position: absolute;
+            top: -10px;
+            left: -10px;
+            width: 40px;
+            height: 40px;
+            background: var(--primary-color);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            opacity: 0.2;
+        }
+
+        .testimonial-content p {
+            font-style: italic;
+            color: #666;
+            line-height: 1.8;
+            margin: 0;
+            padding: 0 10px;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        .author-image {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            overflow: hidden;
+            flex-shrink: 0;
+        }
+
+        .author-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .author-info {
+            flex-grow: 1;
+        }
+
+        .author-info h5 {
+            color: var(--primary-color);
+            margin: 0 0 5px;
+            font-size: 1.1rem;
+        }
+
+        .position {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        .rating {
+            color: #ffc107;
+            font-size: 0.9rem;
+        }
+
+        .rating i {
+            margin-right: 2px;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 991.98px) {
+            .testimonials-section {
+                padding: 60px 0;
+            }
+
+            .testimonial-card {
+                padding: 25px;
+            }
+        }
+
+        @media (max-width: 767.98px) {
+            .testimonials-section {
+                padding: 40px 0;
+            }
+
+            .testimonial-content p {
+                font-size: 0.95rem;
+            }
+
+            .author-image {
+                width: 50px;
+                height: 50px;
+            }
+
+            .author-info h5 {
+                font-size: 1rem;
+            }
+        }
+
+        /* ===== FEATURED IN SECTION STYLES ===== */
+        .featured-section {
+            padding: 80px 0;
+            background-color: white;
+        }
+
+        .featured-logo {
+            padding: 20px;
+            text-align: center;
+            transition: transform 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100px;
+        }
+
+        .featured-logo:hover {
+            transform: scale(1.05);
+        }
+
+        .featured-logo img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+            filter: grayscale(100%);
+            transition: filter 0.3s ease;
+        }
+
+        .featured-logo:hover img {
+            filter: grayscale(0%);
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .values-section, .testimonials-section, .featured-section {
+                padding: 40px 0;
+            }
+
+            .featured-logo {
+                height: 80px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- ===== NAVIGATION BAR ===== -->
+<nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top">
+    <div class="container">
+        <a class="navbar-brand" href="#">
+            <img src="images/logo2.png" alt="Cleanship Logo" class="navbar-logo">
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+                aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav mx-auto">
+                <li class="nav-item">
+                    <a class="nav-link " href="index.html">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="about.html">About</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="servicesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Services
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="servicesDropdown">
+                        <li><a class="dropdown-item" href="Hold-Cleaning-Services.html">Hold Cleaning</a></li>
+                        <li><a class="dropdown-item" href="Tank-Cleaning-Services.html">Tank Cleaning</a></li>
+                        <li><a class="dropdown-item" href="Hull-Cleaning-Services.html">Underwater Hull Cleaning</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="contact.html">Contact</a>
+                </li>
+            </ul>
+            <div class="d-flex">
+                <a href="contact.html" class="btn btn-primary get-quote-btn">Get Quote</a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+    <!-- ===== HERO SECTION ===== -->
+    <section class="about-hero" data-aos="fade-down">
+        <div class="container">
+            <h1>About Marine Super Cargo</h1>
+            <p>Leading Global Platform for Marine Cleaning Service Vendors</p>
+        </div>
+    </section>
+
+    <!-- ===== ABOUT CONTENT SECTION ===== -->
+    <section class="about-content">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6" data-aos="fade-right">
+                    <div class="about-text">
+                        <h2>Our Story</h2>
+                        <div class="timeline">
+                            <div class="timeline-item">
+                                <div class="timeline-icon">
+                                    <i class="fas fa-anchor"></i>
+                                </div>
+                                <div class="timeline-content">
+                                    <h4>Founded in 2010</h4>
+                                    <p>Marine Super Cargo was established with a vision to revolutionize the maritime cleaning industry, bringing innovation and efficiency to ship maintenance.</p>
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-icon">
+                                    <i class="fas fa-ship"></i>
+                                </div>
+                                <div class="timeline-content">
+                                    <h4>First Major Contract</h4>
+                                    <p>Secured our first major contract with a leading shipping company, marking the beginning of our journey to becoming an industry leader.</p>
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-icon">
+                                    <i class="fas fa-globe"></i>
+                                </div>
+                                <div class="timeline-content">
+                                    <h4>Global Expansion</h4>
+                                    <p>Expanded our operations internationally, establishing a presence in key maritime hubs across the world.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="about-stats">
+                            <div class="stat-item">
+                                <h3>14+</h3>
+                                <p>Years of Experience</p>
+                            </div>
+                            <div class="stat-item">
+                                <h3>100+</h3>
+                                <p>Expert Team Members</p>
+                            </div>
+                            <div class="stat-item">
+                                <h3>24/7</h3>
+                                <p>Service Support</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6" data-aos="fade-left">
+                    <div class="about-image-container">
+                        <div class="about-image">
+                            <img src="images/about2.jpeg" alt="Marine Super Cargo Team">
+                        </div>
+                        <div class="image-overlay">
+                            <!-- <div class="overlay-content">
+                                <i class="fas fa-play-circle"></i>
+                                <p>Watch Our Story</p>
+                            </div> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    
+
+    <!-- ===== MISSION & VISION SECTION ===== -->
+    <section class="mission-vision">
+        <div class="container">
+            <div class="text-center mb-5" data-aos="fade-down">
+                <h2>Mission & Vision</h2>
+                <p class="section-subtitle">Driving innovation in maritime cleaning solutions</p>
+            </div>
+            <div class="row">
+                <div class="col-lg-6 mb-4" data-aos="fade-up">
+                    <div class="mission-card">
+                        <div class="card-icon">
+                            <i class="fas fa-bullseye"></i>
+                        </div>
+                        <div class="card-content">
+                            <h3>Our Mission</h3>
+                            <p>To provide innovative, efficient, and environmentally responsible cleaning solutions for the maritime industry, ensuring the highest standards of service and customer satisfaction.</p>
+                            <ul class="mission-list">
+                                <li><i class="fas fa-check-circle"></i> Deliver exceptional cleaning services</li>
+                                <li><i class="fas fa-check-circle"></i> Maintain environmental sustainability</li>
+                                <li><i class="fas fa-check-circle"></i> Ensure safety in all operations</li>
+                                <li><i class="fas fa-check-circle"></i> Build lasting client relationships</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 mb-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="vision-card">
+                        <div class="card-icon">
+                            <i class="fas fa-eye"></i>
+                        </div>
+                        <div class="card-content">
+                            <h3>Our Vision</h3>
+                            <p>To be the global leader in maritime cleaning solutions, setting new standards for excellence, sustainability, and innovation in the industry.</p>
+                            <div class="vision-goals">
+                                <div class="goal-item">
+                                    <div class="goal-icon">
+                                        <i class="fas fa-globe"></i>
+                                    </div>
+                                    <div class="goal-text">
+                                        <h4>Global Leadership</h4>
+                                        <p>Expanding our presence worldwide</p>
+                                    </div>
+                                </div>
+                                <div class="goal-item">
+                                    <div class="goal-icon">
+                                        <i class="fas fa-lightbulb"></i>
+                                    </div>
+                                    <div class="goal-text">
+                                        <h4>Innovation</h4>
+                                        <p>Pioneering new cleaning technologies</p>
+                                    </div>
+                                </div>
+                                <div class="goal-item">
+                                    <div class="goal-icon">
+                                        <i class="fas fa-leaf"></i>
+                                    </div>
+                                    <div class="goal-text">
+                                        <h4>Sustainability</h4>
+                                        <p>Leading in eco-friendly solutions</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== TEAM SECTION 
+    <section class="team-section">
+        <div class="container">
+            <div class="text-center mb-5" data-aos="fade-down">
+                <h2>Our Leadership Team</h2>
+                <p class="section-subtitle">Meet the experts behind our success</p>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 col-md-6" data-aos="fade-up">
+                    <div class="team-card">
+                        <div class="team-image">
+                            <img src="images/pro.avif" alt="Team Member">
+                            <div class="team-overlay">
+                                <div class="team-social">
+                                    <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+                                    <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                                    <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="team-info">
+                            <h4>John Smith</h4>
+                            <p class="position">CEO & Founder</p>
+                            <p class="bio">With over 20 years of experience in maritime industry, John leads our company with vision and expertise.</p>
+                            <div class="team-skills">
+                                <span class="skill-tag">Leadership</span>
+                                <span class="skill-tag">Strategy</span>
+                                <span class="skill-tag">Innovation</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+                    <div class="team-card">
+                        <div class="team-image">
+                            <img src="images/pro.avif" alt="Team Member">
+                            <div class="team-overlay">
+                                <div class="team-social">
+                                    <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+                                    <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                                    <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="team-info">
+                            <h4>Sarah Johnson</h4>
+                            <p class="position">Operations Director</p>
+                            <p class="bio">Sarah brings 15 years of operational excellence to ensure smooth execution of all our services.</p>
+                            <div class="team-skills">
+                                <span class="skill-tag">Operations</span>
+                                <span class="skill-tag">Management</span>
+                                <span class="skill-tag">Efficiency</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+                    <div class="team-card">
+                        <div class="team-image">
+                            <img src="images/pro.avif" alt="Team Member">
+                            <div class="team-overlay">
+                                <div class="team-social">
+                                    <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+                                    <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                                    <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="team-info">
+                            <h4>Michael Brown</h4>
+                            <p class="position">Technical Director</p>
+                            <p class="bio">Michael's technical expertise drives our innovation in cleaning technologies and solutions.</p>
+                            <div class="team-skills">
+                                <span class="skill-tag">Technology</span>
+                                <span class="skill-tag">Innovation</span>
+                                <span class="skill-tag">Research</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section> ===== -->
+
+    <!-- ===== VALUES SECTION ===== -->
+    <section class="values-section">
+        <div class="container">
+            <div class="text-center mb-5" data-aos="fade-down">
+                <h2>Our Core Values</h2>
+                <p class="section-subtitle">The principles that guide everything we do</p>
+            </div>
+            <div class="row">
+                <div class="col-lg-3 col-md-6 mb-4" data-aos="fade-up">
+                    <div class="value-card">
+                        <div class="value-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <div class="value-content">
+                            <h4>Safety First</h4>
+                            <p>We prioritize the safety of our team and clients above all else, maintaining the highest safety standards in all operations.</p>
+                            <div class="value-features">
+                                <div class="feature-item">
+                                    <i class="fas fa-check"></i>
+                                    <span>Regular Safety Training</span>
+                                </div>
+                                <div class="feature-item">
+                                    <i class="fas fa-check"></i>
+                                    <span>Strict Protocols</span>
+                                </div>
+                                <div class="feature-item">
+                                    <i class="fas fa-check"></i>
+                                    <span>Continuous Monitoring</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="value-card">
+                        <div class="value-icon">
+                            <i class="fas fa-leaf"></i>
+                        </div>
+                        <div class="value-content">
+                            <h4>Sustainability</h4>
+                            <p>We are committed to environmentally responsible practices and reducing our ecological footprint in all operations.</p>
+                            <div class="value-features">
+                                <div class="feature-item">
+                                    <i class="fas fa-check"></i>
+                                    <span>Eco-friendly Solutions</span>
+                                </div>
+                                <div class="feature-item">
+                                    <i class="fas fa-check"></i>
+                                    <span>Waste Reduction</span>
+                                </div>
+                                <div class="feature-item">
+                                    <i class="fas fa-check"></i>
+                                    <span>Green Initiatives</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="value-card">
+                        <div class="value-icon">
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <div class="value-content">
+                            <h4>Excellence</h4>
+                            <p>We strive for excellence in every aspect of our work, delivering superior quality and service consistently.</p>
+                            <div class="value-features">
+                                <div class="feature-item">
+                                    <i class="fas fa-check"></i>
+                                    <span>Quality Control</span>
+                                </div>
+                                <div class="feature-item">
+                                    <i class="fas fa-check"></i>
+                                    <span>Continuous Improvement</span>
+                                </div>
+                                <div class="feature-item">
+                                    <i class="fas fa-check"></i>
+                                    <span>Customer Satisfaction</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="300">
+                    <div class="value-card">
+                        <div class="value-icon">
+                            <i class="fas fa-handshake"></i>
+                        </div>
+                        <div class="value-content">
+                            <h4>Integrity</h4>
+                            <p>We conduct business with honesty, transparency, and respect for all stakeholders.</p>
+                            <div class="value-features">
+                                <div class="feature-item">
+                                    <i class="fas fa-check"></i>
+                                    <span>Ethical Practices</span>
+                                </div>
+                                <div class="feature-item">
+                                    <i class="fas fa-check"></i>
+                                    <span>Transparent Communication</span>
+                                </div>
+                                <div class="feature-item">
+                                    <i class="fas fa-check"></i>
+                                    <span>Accountability</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== TESTIMONIALS SECTION ===== -->
+    <section class="testimonials-section">
+        <div class="container">
+            <div class="text-center mb-5" data-aos="fade-down">
+                <h2>What Our Clients Say</h2>
+                <p class="section-subtitle">Testimonials from our valued partners</p>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up">
+                    <div class="testimonial-card">
+                        <div class="testimonial-content">
+                            <div class="quote-icon">
+                                <i class="fas fa-quote-left"></i>
+                            </div>
+                            <p>"Marine Super Cargo's team delivered exceptional service with attention to detail. Their professionalism and expertise are unmatched in the industry."</p>
+                        </div>
+                        <div class="testimonial-author">
+                            <div class="author-image">
+                                <img src="images/pro.avif" alt="Client">
+                            </div>
+                            <div class="author-info">
+                                <h5>David Wilson</h5>
+                                <p class="position">Maritime Operations Manager</p>
+                                <div class="rating">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="testimonial-card">
+                        <div class="testimonial-content">
+                            <div class="quote-icon">
+                                <i class="fas fa-quote-left"></i>
+                            </div>
+                            <p>"The environmental responsibility shown by Marine Super Cargo is impressive. They've helped us maintain our sustainability goals while ensuring top-notch cleaning services."</p>
+                        </div>
+                        <div class="testimonial-author">
+                            <div class="author-image">
+                                <img src="images/pro2.jpg" alt="Client">
+                            </div>
+                            <div class="author-info">
+                                <h5>Sarah Chen</h5>
+                                <p class="position">Environmental Compliance Officer</p>
+                                <div class="rating">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="testimonial-card">
+                        <div class="testimonial-content">
+                            <div class="quote-icon">
+                                <i class="fas fa-quote-left"></i>
+                            </div>
+                            <p>"Their innovative approach to ship cleaning has significantly reduced our maintenance costs. A reliable partner we can always count on."</p>
+                        </div>
+                        <div class="testimonial-author">
+                            <div class="author-image">
+                                <img src="images/pro2.png" alt="Client">
+                            </div>
+                            <div class="author-info">
+                                <h5>Michael Rodriguez</h5>
+                                <p class="position">Fleet Manager</p>
+                                <div class="rating">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    
+
+    <!-- ===== FEATURED IN SECTION ===== -->
+    <section class="featured-section">
+        <div class="container">
+            <div class="text-center mb-5" data-aos="fade-down">
+                <h2>Featured In</h2>
+                <p>Recognized by leading media outlets</p>
+            </div>
+            <div class="row align-items-center justify-content-center">
+                <div class="col-lg-3 col-md-4 col-6 mb-4" data-aos="fade-up">
+                    <div class="featured-logo">
+                        <img src="images/Cleanship-Featured-in-Sangri-Today.webp" alt="Sangri Today">
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-4 col-6 mb-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="featured-logo">
+                        <img src="images/Cleanship-Featured-in-SR.webp" alt="SR">
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-4 col-6 mb-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="featured-logo">
+                        <img src="images/Cleanship-Featured-in-Asia-News.webp" alt="Asia News">
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-4 col-6 mb-4" data-aos="fade-up" data-aos-delay="300">
+                    <div class="featured-logo">
+                        <img src="images/Cleanship-Featured-in-Economic-India.webp" alt="Economic India">
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-4 col-6 mb-4" data-aos="fade-up" data-aos-delay="400">
+                    <div class="featured-logo">
+                        <img src="images/Cleanship-Featured-in-The-Outlook-Mirror.webp" alt="The Outlook Mirror">
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-4 col-6 mb-4" data-aos="fade-up" data-aos-delay="500">
+                    <div class="featured-logo">
+                        <img src="images/Cleanship-Featured-in-Medium.webp" alt="Medium">
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-4 col-6 mb-4" data-aos="fade-up" data-aos-delay="600">
+                    <div class="featured-logo">
+                        <img src="images/Cleanship-Featured-in-Dailyhunt.webp" alt="Dailyhunt">
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-4 col-6 mb-4" data-aos="fade-up" data-aos-delay="700">
+                    <div class="featured-logo">
+                        <img src="images/Cleanship-Featured-in-Jio-News.webp" alt="Jio News">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    
+    <footer class="site-footer">
+        <div class="footer-top">
+            <div class="footer-column logo-column">
+                <img src="images/logbg.png" alt="Marine Super Cargo" class="footer-logo">
+                <p class="slogan">Professional Marine Cleaning Services</p>
+                <div class="footer-contact-info">
+                    <p><i class="bi bi-geo-alt"></i> B.C. 1302955, Ajman Free Zone C1 Building, UAE </p>
+                    <p><i class="bi bi-telephone"></i> +91 92365 20609 </p>
+                    <p><i class="bi bi-envelope"></i> ops@marinesupercargo.com </p>
+                </div>
+            </div>
+            <div class="footer-column">
+                <h3 class="footer-title">Quick Links</h3>
+                <a href="index.html">Home</a>
+                <a href="about.html">About Us</a>
+                <a href="service.html">Services</a>
+                <a href="process.html">Our Process</a>
+                <a href="contact.html">Contact</a>
+            </div>
+            <div class="footer-column">
+                <h3 class="footer-title">Services</h3>
+                <a href="Hold-Cleaning-Services.html">Hold Cleaning</a>
+                <a href="Tank-Cleaning-Services.html">Tank Cleaning</a>
+                <a href="Hull-Cleaning-Services.html">Hull Cleaning</a>
+                <a href="contact.html">Veg Oil Squeezy</a>
+                <a href="contact.html">Deck Maintenance</a>
+            </div>
+            <div class="footer-column">
+                <h3 class="footer-title">Support</h3>
+                <a href="index.html#faq">FAQ</a>
+                <a href="#">Help Center</a>
+                <a href="privacy-policy.html">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+                <a href="#">Sitemap</a>
+            </div>
+        </div>
+
+        <hr class="footer-divider" />
+
+        <div class="footer-bottom">
+            <div class="social-icons">
+                <a href="https://www.facebook.com/marinesupercargo/" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://x.com/Marinsupercargo" class="social-icon"><i class="fa-brands fa-x-twitter"></i></a>
+                <a href="https://www.linkedin.com/company/marinsupercargo/" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+                <!-- <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a> -->
+            </div>
+            <p class="copyright">Copyright © 2024 Marine Super Cargo. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <style>
+        :root {
+            --primary-color: #0049a7; /* Example primary color */
+        }
+
+        .site-footer {
+            background-color: #f8f9fa;
+            color: #111;
+            padding: 60px 15px 20px;
+            font-family: Arial, sans-serif;
+            position: relative;
+            border-top: 1px solid rgba(0, 73, 167, 0.1);
+        }
+
+        .footer-top {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 100px;
+            text-align: left;
+            margin-bottom: 40px;
+            max-width: 1200px;
+            margin-left:  auto;
+            margin-right: auto;
+        }
+
+        .footer-column {
+            flex: 1;
+            min-width: 180px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .logo-column {
+            flex: 1.5;
+        }
+
+        .footer-logo {
+            height: 90px;
+            width:  150px;
+            margin-bottom: 20px;
+            transition: transform 0.3s ease;
+        }
+
+        .footer-logo:hover {
+            transform: scale(1.05);
+        }
+
+        .logo-column .slogan {
+            font-size: 16px;
+            color: #666;
+            line-height: 1.6;
+            max-width: 300px;
+            margin-bottom: 20px;
+        }
+
+        .footer-contact-info {
+            margin-top: 15px;
+        }
+
+        .footer-contact-info p {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin: 8px 0;
+            color: #666;
+            font-size: 14px;
+        }
+
+        .footer-contact-info i {
+            color: var(--primary-color);
+            font-size: 16px;
+        }
+
+        .footer-title {
+            font-size: 18px;
+            color: var(--primary-color);
+            margin-bottom: 25px;
+            font-weight: 600;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 3px;
+            background: var(--primary-color);
+            border-radius: 3px;
+        }
+
+        .footer-column a {
+            margin: 8px 0;
+            font-size: 14px;
+            color: #444;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-block;
+            position: relative;
+            padding-left: 0;
+        }
+
+        .footer-column a::before {
+            content: '→';
+            position: absolute;
+            left: -20px;
+            opacity: 0;
+            transition: all 0.3s ease;
+            color: var(--primary-color);
+        }
+
+        .footer-column a:hover {
+            color: var(--primary-color);
+            padding-left: 20px;
+        }
+
+        .footer-column a:hover::before {
+            opacity: 1;
+            left: 0;
+        }
+
+        .footer-divider {
+            border: none;
+            height: 1px;
+            background: linear-gradient(to right, transparent, var(--primary-color), transparent);
+            margin: 40px auto;
+            max-width: 1200px;
+            opacity: 0.1;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+            padding-top: 20px;
+        }
+
+        .social-icons {
+            margin-bottom: 25px;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .social-icon {
+            color: #444;
+            width: 40px;
+            height: 40px;
+            line-height: 40px;
+            text-align: center;
+            border-radius: 50%;
+            background: rgba(0, 73, 167, 0.05);
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .social-icon:hover {
+            color: white;
+            background: var(--primary-color);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 73, 167, 0.2);
+        }
+
+        .footer-bottom p {
+            font-size: 14px;
+            color: #666;
+            margin: 0;
+        }
+
+        /* Responsive Footer Styles */
+        @media screen and (max-width: 992px) {
+            .footer-top {
+                gap: 40px;
+            }
+
+            .footer-column {
+                min-width: 160px;
+            }
+        }
+
+        @media screen and (max-width: 768px) {
+            .site-footer {
+                padding: 60px 15px 20px;
+            }
+
+            .footer-top {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+                padding: 0 20px;
+                gap: 40px;
+            }
+
+            .footer-column {
+                width: 100%;
+                margin-bottom: 20px;
+                align-items: center;
+            }
+
+            .logo-column {
+                align-items: center;
+            }
+
+            .logo-column .slogan {
+                margin: 0 auto;
+            }
+
+            .footer-title {
+                margin-bottom: 20px;
+            }
+
+            .footer-title::after {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+
+            .footer-contact-info {
+                align-items: center;
+            }
+
+            .footer-contact-info p {
+                justify-content: center;
+            }
+
+            .footer-column a {
+                margin: 6px 0;
+            }
+
+            .social-icons {
+                gap: 10px;
+            }
+        }
+
+        @media screen and (max-width: 576px) {
+            .footer-top {
+                gap: 30px;
+            }
+
+            .footer-logo {
+                height: 80px;
+            }
+
+            .social-icon {
+                width: 35px;
+                height: 35px;
+                line-height: 35px;
+                font-size: 16px;
+            }
+
+            .footer-bottom p {
+                font-size: 12px;
+            }
+        }
+    </style>
+
+    <!-- ===== EXTERNAL JAVASCRIPT LIBRARIES ===== -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.4/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-YUe2LzesAfftltw+PEaao2tjU/QATaW/rOitAq67e0CT0Zi2VVRL0oC4+gAaeBKu"
+            crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    
+    <!-- ===== AOS INITIALIZATION ===== -->
+    <script>
+        AOS.init({
+            duration: 1000,
+            once: false,
+            mirror: true
+        });
+    </script>
+
+    <script>
+        // Add scroll effect to navbar
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+    </script>
+</body>
+</html>

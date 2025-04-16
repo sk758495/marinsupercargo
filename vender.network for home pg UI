@@ -1,0 +1,238 @@
+  <!-- ===== VENDOR NETWORK SECTION ===== -->
+      <section class="vendor-network py-5" data-aos="fade-up" data-aos-duration="1000">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-5 mb-4 mb-lg-0">
+                    <h2 class="display-6 fw-bold mb-4">Seamless Cleaning Services, Worldwide</h2>
+                    <p class=" mb-4">With a strong presence in key ports globally, Marine Super Cargo delivers reliable and high-quality cleaning wherever your vessels operate. Our strategic locations mean efficient service and reduced downtime for you.</p>
+                </div>
+                <div class="col-lg-7">
+                    <div class="world-map-container">
+                        <div class="map-points">
+                            <!-- Indian Ports -->
+                            <div class="map-point" style="top: 48%; left: 70%" data-port="Mumbai">
+                                <div class="tooltip">Mumbai, India</div>
+                            </div>
+                            <div class="map-point" style="top: 45%; left: 71%" data-port="Kolkata">
+                                <div class="tooltip">Kolkata, India</div>
+                            </div>
+                            <div class="map-point" style="top: 47%; left: 69%" data-port="Chennai">
+                                <div class="tooltip">Chennai, India</div>
+                            </div>
+
+                            <!-- Middle East Ports -->
+                            <div class="map-point" style="top: 45%; left: 65%" data-port="Dubai">
+                                <div class="tooltip">Dubai, UAE</div>
+                            </div>
+                            <div class="map-point" style="top: 44%; left: 63%" data-port="Jeddah">
+                                <div class="tooltip">Jeddah, Saudi Arabia</div>
+                            </div>
+                            <div class="map-point" style="top: 46%; left: 67%" data-port="Muscat">
+                                <div class="tooltip">Muscat, Oman</div>
+                            </div>
+
+                            <!-- Asian Ports -->
+                            <div class="map-point" style="top: 58%; left: 75%" data-port="Singapore">
+                                <div class="tooltip">Singapore</div>
+                            </div>
+                            <div class="map-point" style="top: 42%; left: 82%" data-port="Shanghai">
+                                <div class="tooltip">Shanghai, China</div>
+                            </div>
+                            <div class="map-point" style="top: 40%; left: 85%" data-port="Tokyo">
+                                <div class="tooltip">Tokyo, Japan</div>
+                            </div>
+                            <div class="map-point" style="top: 45%; left: 80%" data-port="HongKong">
+                                <div class="tooltip">Hong Kong</div>
+                            </div>
+
+                            <!-- European Ports -->
+                            <div class="map-point" style="top: 35%; left: 48%" data-port="Rotterdam">
+                                <div class="tooltip">Rotterdam, Netherlands</div>
+                            </div>
+                            <div class="map-point" style="top: 37%; left: 50%" data-port="Hamburg">
+                                <div class="tooltip">Hamburg, Germany</div>
+                            </div>
+                            <div class="map-point" style="top: 39%; left: 47%" data-port="Marseille">
+                                <div class="tooltip">Marseille, France</div>
+                            </div>
+                            <div class="map-point" style="top: 41%; left: 52%" data-port="Piraeus">
+                                <div class="tooltip">Piraeus, Greece</div>
+                            </div>
+
+                            <!-- American Ports -->
+                            <div class="map-point" style="top: 42%; left: 20%" data-port="NewYork">
+                                <div class="tooltip">New York, USA</div>
+                            </div>
+                            <div class="map-point" style="top: 45%; left: 15%" data-port="LosAngeles">
+                                <div class="tooltip">Los Angeles, USA</div>
+                            </div>
+                            <div class="map-point" style="top: 65%; left: 30%" data-port="Santos">
+                                <div class="tooltip">Santos, Brazil</div>
+                            </div>
+                        </div>
+                        <img src="images/world.png" alt="World Map" class="img-fluid">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <style>
+        .vendor-network {
+            background-color: #f8f9fa;
+            position: relative;
+            overflow: hidden;
+            padding: 60px 0;
+        }
+
+        .world-map-container {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            min-height: 300px;
+        }
+
+        .map-points {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+
+        .map-point {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background-color: var(--primary-color);
+            border-radius: 50%;
+            cursor: pointer;
+            pointer-events: auto;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+            animation: pulse 2s infinite;
+        }
+
+        .map-point::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 73, 167, 0.4);
+            border-radius: 50%;
+            animation: ripple 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+            100% { transform: scale(1); }
+        }
+
+        @keyframes ripple {
+            0% {
+                transform: translate(-50%, -50%) scale(1);
+                opacity: 1;
+            }
+            100% {
+                transform: translate(-50%, -50%) scale(2.5);
+                opacity: 0;
+            }
+        }
+
+        .map-point:hover {
+            transform: scale(1.5);
+            z-index: 10;
+        }
+
+        .map-point .tooltip {
+            position: absolute;
+            bottom: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: var(--primary-color);
+            color: white;
+            padding: 6px 12px;
+            border-radius: 4px;
+            font-size: 12px;
+            white-space: nowrap;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            pointer-events: none;
+            z-index: 100;
+        }
+
+        .map-point:hover .tooltip {
+            opacity: 1;
+            visibility: visible;
+            bottom: calc(100% + 5px);
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 1200px) {
+            .map-point {
+                width: 8px;
+                height: 8px;
+            }
+        }
+
+        @media (max-width: 991.98px) {
+            .world-map-container {
+                margin-top: 30px;
+                min-height: 250px;
+            }
+            .map-point .tooltip {
+                font-size: 11px;
+                padding: 4px 8px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .vendor-network {
+                padding: 40px 0;
+            }
+            .map-point {
+                width: 6px;
+                height: 6px;
+            }
+            .world-map-container {
+                min-height: 200px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .world-map-container {
+                min-height: 150px;
+            }
+            .map-point {
+                width: 5px;
+                height: 5px;
+            }
+        }
+    </style>
+
+    <script>
+        document.querySelectorAll('.port-item').forEach(item => {
+            item.addEventListener('mouseenter', () => {
+                const port = item.getAttribute('data-port');
+                const point = document.querySelector(`.map-point[data-port="${port}"]`);
+                if (point) {
+                    point.style.transform = 'scale(1.5)';
+                    point.style.backgroundColor = 'var(--primary-color)';
+                }
+            });
+
+            item.addEventListener('mouseleave', () => {
+                const port = item.getAttribute('data-port');
+                const point = document.querySelector(`.map-point[data-port="${port}"]`);
+                if (point) {
+                    point.style.transform = 'scale(1)';
+                    point.style.backgroundColor = '#ff4444';
+                }
+            });
+        });
+    </script>
